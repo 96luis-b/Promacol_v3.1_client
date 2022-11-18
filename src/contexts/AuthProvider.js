@@ -1,12 +1,10 @@
 import { createContext, useState, useEffect } from 'react'
 import { loginAPI, logoutAPI } from '../api/auth'
 import { deteleSingleCount } from '../utils/singleCount'
-import { useHistory } from 'react-router-dom';
 
 
 export const AuthContext = createContext()
 const AuthProvider = ({ children }) => {
-    // const history = useHistory();
 
     const [user, setUser] = useState(
         JSON.parse(localStorage.getItem('user')) || null
@@ -28,7 +26,6 @@ const AuthProvider = ({ children }) => {
                 if (res.status != 200) {throw Error(res.message)}
                 setUser(res.body)
                 return true
-                // history.push("/scop/tablero_conteo");
             } catch (error) {
                 console.log("error: ", error.message)
                 alert(error.message)
@@ -43,7 +40,6 @@ const AuthProvider = ({ children }) => {
                     setUser(null)
                     deteleSingleCount()
                     return true
-                    // history.push("/");
             } catch (error) {
                 alert(error.message)
                 return false

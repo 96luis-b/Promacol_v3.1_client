@@ -18,64 +18,6 @@ const initialData = {
 }
 
 export const MainProvider = ({ children }) => {
-    // const [tested, setTested] = useState("tested")
-    // const [currencies, setCurrencies] = useState([])
-    // const [currency, setCurrency] = useState(null);
-    // const [value, setValue] = useState(null);
-    // const [data, setData] = useState(initialData)
-    
-    // const getJob = ()=>{
-    //     console.log("getJob")
-    //     let response = await getJob();
-    //     console.log("response: ", response)
-    //     setCurrencies(response.body)
-    // }
-
-
-    // useEffect(async () => {
-    //     console.log("getJob")
-    //     let response = await getJob();
-    //     console.log("response: ", response)
-    //     setCurrencies(response.body)
-    // }, [])
-
-    // const handleChangeData = (item, value) => {
-    //     let element = value
-    //     if(item == "job") {
-    //         element = currencies.filter(e => value == e.value)
-    //         element = element[0]
-    //         setCurrency(value)
-    //     }
-
-    //     setData({
-    //         ...data,
-    //         [item]: element
-    //     })
-    // };
-
-    // const handleSignupEmployee = async() => {
-    //     console.log("handleSignupEmployee: ", data)
-    //     // let response = await signupEmployee(data);
-    //     // console.log("response: ", response)
-    // }
-
-    // const handleUpdateEmployee = async()=>{
-    //     console.log("handleUpdateEmployee: ", data)
-
-    //     // let response = await updateEmployee(data);
-    //     // console.log("response: ", response)
-    // }
-
-    // const contextValue = {
-    //     tested,
-    //     currencies,
-    //     currency,
-    //     value,
-    //     data,
-    //     handleChangeData,
-    //     handleSignupEmployee,
-    //     handleUpdateEmployee
-    // }
 
     const listContext = { switchSearch }
     return (

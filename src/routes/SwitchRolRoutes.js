@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Router, Navigate } from 'react-router-dom';
+
 
 import Sidebar from '../components/Sidebar';
 

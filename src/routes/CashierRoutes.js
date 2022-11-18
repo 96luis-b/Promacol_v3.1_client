@@ -1,5 +1,7 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
+
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+
 
 import Sidebar from '../components/Sidebar';
 
@@ -20,17 +22,17 @@ import WelcomePage from '../pages/WelcomePage';
 
 export default function CashierRoutes() {
     return (
-        <Router>
+        <BrowserRouter>
             <Sidebar />
-            <Switch>
-                <Route exact path="/inicio" component={WelcomePage} />
-                <Route exact path='/scop/reporte/estadistico' component={StatisticalReportPage} />
-                <Route exact path='/scop/pago_nomina' component={PayrollPage} />
-                <Route path="404" component={NotFoundPage} />
-                <Route path="*">
-                    <Redirect to="/404" />
-                </Route>
-            </Switch>
-        </Router>
+                <Routes>
+                    <Route exact path="/inicio" component={WelcomePage} />
+                    <Route exact path='/scop/reporte/estadistico' component={StatisticalReportPage} />
+                    <Route exact path='/scop/pago_nomina' component={PayrollPage} />
+                    <Route path="404" component={NotFoundPage} />
+                    <Route path="*">
+                        <Navigate to="/404" />
+                    </Route>
+                </Routes>
+        </BrowserRouter>
     )
 }

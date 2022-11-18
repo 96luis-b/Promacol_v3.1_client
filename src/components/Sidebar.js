@@ -22,7 +22,7 @@ import { GridContainerCenter } from '../styledComponents/GridContainerCenter'
 import LogoutButton from './LogoutButton'
 import FormControl from '@mui/material/FormControl';
 import useAuth from '../contexts/useAuth'
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 // obtener menu de componente SidebarData
 // pasarle un parametro, para obtener un menu determinado 
@@ -50,7 +50,7 @@ const SidebarData = () => {
 
 
 const Sidebar = () => {
-    const history = useHistory();
+    
     const auth = useAuth()
     const [sidebar, setSidebar] = useState(false)
     // const [sidebarData, setSidebarData] = useState([AdminSidebarData])

@@ -13,7 +13,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import useAuth from "../contexts/useAuth";
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -33,8 +33,7 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Login() {
-
-  const history = useHistory();
+  const navigate = useNavigate()
   const auth = useAuth()
 
   const handleSubmit = async (event) => {
@@ -45,9 +44,9 @@ export default function Login() {
         username: data.get('username'),
         password: data.get('password'),
       });
-      if (response) history.push("/inicio")
+      if (response) navigate("/inicio")
     } catch (e) {
-
+      console.error(e)
     }
   };
 

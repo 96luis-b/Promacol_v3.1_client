@@ -1,5 +1,7 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
+
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+
 
 import Sidebar from '../components/Sidebar';
 
@@ -16,18 +18,17 @@ import NotFoundPage from '../pages/NotFoundPage'
 // import Sidebar from '../components/Sidebar'
 
 export default function SysSupRoutes() {
-    return (
-        <Router>
-            <Sidebar />
-            <Switch>
+    return (<>
+        <Sidebar />
+        <BrowserRouter>
+            <Routes>
                 <Route path="/" component={CountBoardPage} />
-               
-
                 <Route path="404" component={NotFoundPage} />
                 <Route path="*">
-                    <Redirect to="/404" />
+                    <Navigate to="/404" />
                 </Route>
-            </Switch>
-        </Router>
+            </Routes>
+        </BrowserRouter>
+    </>
     )
 }

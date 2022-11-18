@@ -1,22 +1,44 @@
 import Sidebar from './components/Sidebar';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import AppRoutes from './routes/AppRoutes'
 // import { SearchProvider } from './contexts/SearchContext'
 import { MainProvider } from './contexts/MainContext'
 import AuthProvider from './contexts/AuthProvider';
 
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 
 function App() {
   return (
-    <Router>
-
+    <BrowserRouter>
       <MainProvider>
         <AuthProvider>
           <AppRoutes />
         </AuthProvider>
       </MainProvider>
-    </Router>
+    </BrowserRouter>
   );
+  // return (
+  //   <BrowserRouter>
+  //     <AppRoutes />
+  //   </BrowserRouter>
+  // );
+
+  // return (
+  //   <BrowserRouter>
+  //     <Routes>
+  //       <Route path="/" element={<Dashboard />}>
+
+  //       </Route>
+  //     </Routes>
+  //   </BrowserRouter>
+  // )
 }
 
 export default App;
+
+
+function Dashboard() {
+  return (
+    <h1>Hola Dashboard</h1>
+  )
+}

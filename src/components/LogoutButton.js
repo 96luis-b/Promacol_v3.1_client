@@ -1,17 +1,17 @@
 import React from 'react'
 import * as BiIcons from 'react-icons/bi'
 import useAuth from "../contexts/useAuth";
-import { useHistory } from 'react-router-dom';
+import { useNavigate  } from 'react-router-dom';
 import SidebarLink from '../styledComponents/SidebarLink'
 import SidebarLabel from '../styledComponents/SidebarLabel'
 
 const LogoutButton = () => {
-    const history = useHistory();
+    const navigate = useNavigate()
     const auth = useAuth()
     
     const logout = async() => {
         let response = await auth.logout()
-        if(response) history.push("/");
+        if(response) navigate('/')
     }
 
     return (

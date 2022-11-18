@@ -1,5 +1,7 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
+
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+
 
 import Sidebar from '../components/Sidebar';
 
@@ -17,17 +19,17 @@ import NotFoundPage from '../pages/NotFoundPage'
 
 export default function WeiSupRoutes() {
     return (
-        <Router>
+        <BrowserRouter>
             <Sidebar />
-            <Switch>
+            <Routes>
                 {/*<Route path="/" component={DashboardPage} />*/}
-               
+
 
                 <Route path="404" component={NotFoundPage} />
                 <Route path="*">
-                    <Redirect to="/404" />
+                    <Navigate to="/404" />
                 </Route>
-            </Switch>
-        </Router>
+            </Routes>
+        </BrowserRouter>
     )
 }
