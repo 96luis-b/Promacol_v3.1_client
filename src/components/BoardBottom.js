@@ -16,7 +16,7 @@ import { FiPlus } from 'react-icons/fi';
 
 import { CountTable } from './CountTable';
 
-export const BoardBottom = ({production, handleMoreLess, singleCount, groupCount, handleCleanSingleCount, handleCleanGroupCount}) => {
+export const BoardBottom = ({production, handleMoreLess, singleCount, groupCount, handleCleanSingleCount, handleCleanGroupCount, active}) => {
     return (
         <>
             <Container maxWidth="lg">
@@ -27,6 +27,8 @@ export const BoardBottom = ({production, handleMoreLess, singleCount, groupCount
                     groupCount={groupCount}
                     handleCleanSingleCount={handleCleanSingleCount}
                     handleCleanGroupCount={handleCleanGroupCount}
+                    active={active}
+
                 />
             </Container>
         </>

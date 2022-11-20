@@ -59,6 +59,7 @@ export default function StatisticalReportPage() {
 	}
 
 	const turnPage = (string) => {
+		console.log("data.length: ", data.length)
 		let index = data?.length || 0
 		if (string == "back") {
 			let i = celda - 1
@@ -87,24 +88,20 @@ export default function StatisticalReportPage() {
 						alert(response.message)
 						return
 					}
+					console.log("data: ", response.body)
 					setData(response.body)
 					setGroup([response.body[0]])
 					handleOpen()
 					break;
 				case 2:
 					response = await getPayrollEmployeeReport({ date: date });
-					console.log("response: ssss:  ", response)
 					if (response.status != 200) {
 						console.error("error: ", response.message)
 						alert(response.message)
 						return
 					}
-					console.log("response: 11111:  ", response)
-
 					setData(response.body)
 					handleOpen()
-					console.log("option: ", option)
-					console.log("data: ", data)
 					break
 				case 3:
 					console.log(1);
@@ -225,165 +222,3 @@ export default function StatisticalReportPage() {
 }
 
 
-
-
-
-
-
-
-// const data = {
-// 	"status": 200,
-// 	"message": "Ok",
-// 	"body": [
-// 	  {
-// 		"job_name": "Cangrejero",
-// 		"category": [
-// 		  {
-// 			"category_id": 2,
-// 			"job_id": 1,
-// 			"job_name": "Cangrejero",
-// 			"employee_id": 2,
-// 			"emp_code": "OB-1",
-// 			"name1": "alberto",
-// 			"name2": "Jose",
-// 			"lastname1": "Bocaranda",
-// 			"lastname2": "Sanchez",
-// 			"id_number": 25342580,
-// 			"production": [
-// 			  {
-// 				"employee_id": 2,
-// 				"worker_prod_id": 2,
-// 				"start_date": "2022-08-23T04:00:00.000Z",
-// 				"prod_id": 2,
-// 				"prod_name": "Lump",
-// 				"quantity": 2
-// 			  },
-// 			  {
-// 				"employee_id": 2,
-// 				"worker_prod_id": 2,
-// 				"start_date": "2022-08-23T04:00:00.000Z",
-// 				"prod_id": 1,
-// 				"prod_name": "Jumbo",
-// 				"quantity": 1
-// 			  }
-// 			]
-// 		  }
-// 		]
-// 	  },
-// 	  {
-// 		"job_name": "Colmillero",
-// 		"category": [
-// 		  {
-// 			"category_id": 2,
-// 			"job_id": 2,
-// 			"job_name": "Colmillero",
-// 			"employee_id": 3,
-// 			"emp_code": "OB-2",
-// 			"name1": "Maria",
-// 			"name2": "Jose",
-// 			"lastname1": "Castellano",
-// 			"lastname2": "Perez",
-// 			"id_number": 26235789,
-// 			"production": [
-// 			  {
-// 				"employee_id": 3,
-// 				"worker_prod_id": 3,
-// 				"start_date": "2022-08-23T04:00:00.000Z",
-// 				"prod_id": 3,
-// 				"prod_name": "Claw",
-// 				"quantity": 3
-// 			  },
-// 			  {
-// 				"employee_id": 3,
-// 				"worker_prod_id": 3,
-// 				"start_date": "2022-08-23T04:00:00.000Z",
-// 				"prod_id": 4,
-// 				"prod_name": "Cocktail",
-// 				"quantity": 2
-// 			  }
-// 			]
-// 		  },
-// 		  {
-// 			"category_id": 2,
-// 			"job_id": 2,
-// 			"job_name": "Colmillero",
-// 			"employee_id": 8,
-// 			"emp_code": "OB-7",
-// 			"name1": "Eddy",
-// 			"name2": "Alberto",
-// 			"lastname1": "Reyes",
-// 			"lastname2": "Tonetti",
-// 			"id_number": 21125544
-// 		  }
-// 		]
-// 	  },
-// 	  {
-// 		"job_name": "Revisador de carne blanca",
-// 		"category": [
-// 		  {
-// 			"category_id": 2,
-// 			"job_id": 3,
-// 			"job_name": "Revisador de carne blanca",
-// 			"employee_id": 4,
-// 			"emp_code": "OB-3",
-// 			"name1": "Thomas",
-// 			"name2": "Star",
-// 			"lastname1": "Thomas",
-// 			"lastname2": "Castillo",
-// 			"id_number": 25644710
-// 		  }
-// 		]
-// 	  },
-// 	  {
-// 		"job_name": "Revisador de carne negra",
-// 		"category": [
-// 		  {
-// 			"category_id": 2,
-// 			"job_id": 4,
-// 			"job_name": "Revisador de carne negra",
-// 			"employee_id": 5,
-// 			"emp_code": "OB-4",
-// 			"name1": "Tito",
-// 			"name2": "Sarmiento",
-// 			"lastname1": "Toño",
-// 			"lastname2": "Toro",
-// 			"id_number": 20444586
-// 		  }
-// 		]
-// 	  },
-// 	  {
-// 		"job_name": "Revisador de carne jumbo",
-// 		"category": [
-// 		  {
-// 			"category_id": 2,
-// 			"job_id": 5,
-// 			"job_name": "Revisador de carne jumbo",
-// 			"employee_id": 6,
-// 			"emp_code": "OB-5",
-// 			"name1": "Genesis",
-// 			"name2": "Perez",
-// 			"lastname1": "Camila",
-// 			"lastname2": "Vera",
-// 			"id_number": 27755448
-// 		  }
-// 		]
-// 	  },
-// 	  {
-// 		"job_name": "Desconchador",
-// 		"category": [
-// 		  {
-// 			"category_id": 2,
-// 			"job_id": 6,
-// 			"job_name": "Desconchador",
-// 			"employee_id": 7,
-// 			"emp_code": "OB-6",
-// 			"name1": "Daniel",
-// 			"name2": "Jose",
-// 			"lastname1": "Suarez",
-// 			"lastname2": "Suarez",
-// 			"id_number": 19025558
-// 		  }
-// 		]
-// 	  }
-// 	]
-//   }

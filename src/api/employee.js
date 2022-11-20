@@ -39,7 +39,6 @@ export const getJob = async () => {
 }
 
 export const searchEmployee = async (param) => {
-  console.log("nos se que esta pasando")
   let storage = JSON.parse(localStorage.getItem('user'))
   const res = await fetch(`${api}employee/getEmployee/${param}`, {
       method: "GET",

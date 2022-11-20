@@ -27,7 +27,7 @@ const CountBoardPage = () => {
 	const [total, setTotal] = useState(0)
 	const [singleCount, setSingleCount] = useState([])
 	const [groupCount, setGroupCount] = useState([])
-	const [loader, setLoader] = useState(false);
+	const [active, setActive] = useState(false);
 
 	const cleanFields = () => {
 		setEmployee(null)
@@ -63,12 +63,13 @@ const CountBoardPage = () => {
 
 		if (status) {
 			try {
-				setProduction(p)
-				setTotal(total + v)
-				let s = save({ employee, production, prod_id: prod.prod_id }, v)
-				let group = saveGroupCount(production, v, prod.prod_id)
-				setSingleCount(s)
-				setGroupCount(group)
+				handleActive()
+				// setProduction(p)
+				// setTotal(total + v)
+				// let s = save({ employee, production, prod_id: prod.prod_id }, v)
+				// let group = saveGroupCount(production, v, prod.prod_id)
+				// setSingleCount(s)
+				// setGroupCount(group)
 				response = await moreLess({
 					product: product,
 					employee: {
@@ -80,12 +81,14 @@ const CountBoardPage = () => {
 				// error al realizar peticiones consecutivas
 				// el cambio de estado de production y total no se
 				// efectua rapidamente y se desactualiza 
-				// setProduction(p)
-				// setTotal(total + v)
-				// let s = save({ employee, production, prod_id: prod.prod_id }, v)
-				// let group = saveGroupCount(production, v, prod.prod_id)
-				// setSingleCount(s)
-				// setGroupCount(group)
+				console.log("response: ", response)
+				setProduction(p)
+				setTotal(total + v)
+				let s = save({ employee, production, prod_id: prod.prod_id }, v)
+				let group = saveGroupCount(production, v, prod.prod_id)
+				setSingleCount(s)
+				setGroupCount(group)
+				handleUnactive()
 			} catch (e) {
 				alert(e)
 			}
@@ -101,17 +104,17 @@ const CountBoardPage = () => {
 		setGroupCount(getGroupCount(JSON.parse(JSON.stringify(production))) || [])
 	}
 
-	const handleCloseLoader = () => {
-		setLoader(false);
+	const handleUnactive = () => {
+		setActive(false);
 	};
 
-	const handleOpenLoader = () => {
-		setLoader(true);
+	const handleActive = () => {
+		setActive(true);
 	};
 
 	const handleSubmit = async () => {
 		try {
-			handleOpenLoader()
+			handleActive()
 			let response = await searchCountEmployee(inputText);
 			console.log("response: ", response)
 			if (response.status != 200) {
@@ -126,7 +129,7 @@ const CountBoardPage = () => {
 			setTotal(response.body.total)
 			setSingleCount(getSingleCount(JSON.parse(JSON.stringify(response.body.employee.employee_id))) || [])
 			setGroupCount(getGroupCount(JSON.parse(JSON.stringify(response.body.production))) || [])
-			handleCloseLoader()
+			handleUnactive()
 		} catch (e) {
 			alert(e)
 		}
@@ -158,14 +161,15 @@ const CountBoardPage = () => {
 						groupCount={groupCount}
 						handleCleanSingleCount={handleCleanSingleCount}
 						handleCleanGroupCount={handleCleanGroupCount}
+						active={active}
 					/>
 				</Container>
 				: null
 			}
-			{loader
+			{/* {loader
 				? <LoaderDialog open={loader} handleClose={handleCloseLoader} />
 				: null
-			}
+			} */}
 		</>
 	)
 }

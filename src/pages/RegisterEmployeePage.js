@@ -31,7 +31,7 @@ export default function RegisterEmployeePage() {
     const [loader, setLoader] = useState(false);
     // const [employee, setEmployee] = useState({})
     const [value, setValue] = useState("")
-    useEffect( () => {
+    useEffect(() => {
         async function fetchData() {
             try {
                 let response = await getJob();
@@ -39,8 +39,8 @@ export default function RegisterEmployeePage() {
             } catch (e) {
                 alert(e)
             }
-          }
-          fetchData();
+        }
+        fetchData();
     }, [])
 
     const handleChangeData = (item, v) => {
@@ -74,8 +74,12 @@ export default function RegisterEmployeePage() {
             handleOpenLoader()
             if (checkInput(data)) return alert("Por favor complete todos los campos")
             let response = await signupEmployee(data);
-            if (response.status != 200) console.error("error: ", response.message)
+            if (response.status != 200) {
+                handleCloseLoader()
+                return console.error("error: ", response.message)
+            }
             alert(response.message)
+            handleChangeData("emp_code", response.body)
             handleCloseLoader()
         } catch (e) {
             alert(e)

@@ -22,6 +22,7 @@ import Box from '@mui/material/Box';
 
 export default function AlertDialog({ open, handleOpen, handleClose, data, turnPage, group, date, time }) {
   let totalUnitGroup = 0, colSpan = group[0].category[0].production?.length || 1;
+  console.log("group: ", group)
   return (
     <div>
       <Dialog
@@ -47,6 +48,7 @@ export default function AlertDialog({ open, handleOpen, handleClose, data, turnP
                 <TableRow>
                   <TableCell align="right">Nro</TableCell>
                   <TableCell align="right">Grupo</TableCell>
+                  <TableCell align="right">Codigo</TableCell>
                   <TableCell align="center">Nombre completo</TableCell>
                   <TableCell align="center" colSpan={colSpan}>Producto</TableCell>
                   <TableCell align="center">Total</TableCell>
@@ -63,11 +65,12 @@ export default function AlertDialog({ open, handleOpen, handleClose, data, turnP
                       >
                         <TableCell align="right">{z + 1}</TableCell>
                         <TableCell align="right">{row.job_name}</TableCell>
+                        <TableCell align="right">{elem.emp_code}</TableCell>
                         <TableCell align="right">{`${elem.name1} ${elem.name2} ${elem.lastname1} ${elem.lastname2}`}</TableCell>
                         {elem.production
                           ? elem.production.map((p, j, index) => {
-                            if (index) totalUnit = totalUnit + p.quantity
-                            if (j + 1 == index?.length || false) { totalUnitGroup = totalUnitGroup + totalUnit }
+                            if (index) totalUnit = parseInt(totalUnit) + parseInt(p.quantity)
+                            if (j + 1 == index?.length || false) { totalUnitGroup = parseInt(totalUnitGroup) + parseInt(totalUnit) }
                             return <TableCell align="right" key={j}>{`${p?.prod_name}: ${p?.quantity}`}</TableCell>
                           })
                           : <TableCell align="center">---</TableCell>

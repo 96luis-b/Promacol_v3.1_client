@@ -17,7 +17,7 @@ import { CountBox } from '../styledComponents/CountBox';
 import { CountCard } from '../styledComponents/CountCard';
 
 
-export const CountTable = ({production, handleMoreLess, singleCount, groupCount, handleCleanSingleCount, handleCleanGroupCount}) => {
+export const CountTable = ({production, handleMoreLess, singleCount, groupCount, handleCleanSingleCount, handleCleanGroupCount, active}) => {
     return (
         <>
             <GridContainerCenter
@@ -47,7 +47,7 @@ export const CountTable = ({production, handleMoreLess, singleCount, groupCount,
                                     <GridContainerCenter item>
                                         <Button 
                                             sx={{ fontSize: "25px" }}
-                                            onClick={()=> handleMoreLess(item, -1, item?.quantity || 0)}>
+                                            onClick={()=> {if(active != true) handleMoreLess(item, -1, item?.quantity || 0)}}>
                                             <IoMdRemove />
                                         </Button>
                                     </GridContainerCenter>
@@ -55,7 +55,7 @@ export const CountTable = ({production, handleMoreLess, singleCount, groupCount,
                                     <GridContainerCenter item justify="flex-end">
                                         <Button 
                                             sx={{ fontSize: "25px" }} 
-                                            onClick={()=> handleMoreLess(item, 1, item?.quantity || 0)}>
+                                            onClick={()=>{if(active != true) handleMoreLess(item, 1, item?.quantity || 0)}}>
                                             <FiPlus />
                                         </Button>
                                     </GridContainerCenter>
