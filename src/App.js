@@ -16,22 +16,7 @@ function App() {
         </AuthProvider>
       </MainProvider>
     </BrowserRouter>
-  );
-  // return (
-  //   <BrowserRouter>
-  //     <AppRoutes />
-  //   </BrowserRouter>
-  // );
-
-  // return (
-  //   <BrowserRouter>
-  //     <Routes>
-  //       <Route path="/" element={<Dashboard />}>
-
-  //       </Route>
-  //     </Routes>
-  //   </BrowserRouter>
-  // )
+  )
 }
 
 export default App;

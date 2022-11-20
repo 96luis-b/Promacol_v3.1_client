@@ -31,13 +31,16 @@ export default function RegisterEmployeePage() {
     const [loader, setLoader] = useState(false);
     // const [employee, setEmployee] = useState({})
     const [value, setValue] = useState("")
-    useEffect(async () => {
-        try {
-            let response = await getJob();
-            setOptions(response.body)
-        } catch (e) {
-            alert(e)
-        }
+    useEffect( () => {
+        async function fetchData() {
+            try {
+                let response = await getJob();
+                setOptions(response.body)
+            } catch (e) {
+                alert(e)
+            }
+          }
+          fetchData();
     }, [])
 
     const handleChangeData = (item, v) => {

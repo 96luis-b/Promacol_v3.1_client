@@ -28,9 +28,9 @@ import { useNavigate } from 'react-router-dom';
 // pasarle un parametro, para obtener un menu determinado 
 // const sidebarDataInit = {}
 
-const SidebarData = () => {
-    const auth = useAuth()
-    const user = JSON.parse(JSON.stringify(auth.user))
+const SidebarData = (user) => {
+    // const auth = useAuth()
+    // const user = auth.user
     let data;
     switch (user.role[0]) {
         case 1:
@@ -54,7 +54,7 @@ const Sidebar = () => {
     const auth = useAuth()
     const [sidebar, setSidebar] = useState(false)
     // const [sidebarData, setSidebarData] = useState([AdminSidebarData])
-    const [sidebarData, setSidebarData] = useState(SidebarData)
+    const [sidebarData, setSidebarData] = useState(SidebarData(auth.user))
     const showSidebar = () => setSidebar(!sidebar)
     let location = useLocation();
     const { switchSearch } = useContext(MainContext)

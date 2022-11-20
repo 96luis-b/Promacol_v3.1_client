@@ -129,8 +129,10 @@ const AssitancePage = () => {
 		try {
 			handleOpenLoader()
 			let response = await searchEmployee(inputText);
-			if (response.status != 200) return console.error("error: ", response.message)
-			console.log("response: ", response)
+			if (response.status != 200) { 
+				handleCloseLoader()
+				return alert(response.message)
+			}
 			setEmployee(response.body)
 			handleCloseLoader()
 		} catch (e) {

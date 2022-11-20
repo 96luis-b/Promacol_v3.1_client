@@ -18,7 +18,7 @@ export const TextFieldSelect = ({ label, width, my, options, option, onChange })
                         {option.label}
                     </MenuItem>
                 ))
-                :null
+                :<MenuItem></MenuItem>
                 }
             </TextField>
         </>
