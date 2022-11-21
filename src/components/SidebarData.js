@@ -174,9 +174,35 @@ export const AdminSidebarData = [
                 path: '/scop/extrac_producto',
                 icon: <FaIcons.FaCartPlus />
             },
+            // {
+            //     title: 'Pesaje',
+            //     path: '/scop/pesaje',
+            //     icon: <FaIcons.FaCartPlus />
+            // },
+        ]
+    },
+    {
+        title: 'Unidades de producción',
+        path: '/scop/unidad_produccion',
+        icon: <AiIcons.AiFillHome />,
+        iconClosed: <RiIcons.RiArrowDownSFill />,
+        iconOpen: <RiIcons.RiArrowUpSFill />,
+    },
+    {
+        title: 'Moneda',
+        // path: '/scop',
+        icon: <AiIcons.AiFillHome />,
+        iconClosed: <RiIcons.RiArrowDownSFill />,
+        iconOpen: <RiIcons.RiArrowUpSFill />,
+        subNav: [
             {
-                title: 'Pesaje',
-                path: '/scop/pesaje',
+                title: 'Lista de monedas',
+                path: '/scop/lista_moneda',
+                icon: <FaIcons.FaCartPlus />
+            },
+            {
+                title: 'Tasa de cambio',
+                path: '/scop/tasa_cambio',
                 icon: <FaIcons.FaCartPlus />
             },
         ]
@@ -193,23 +219,23 @@ export const AdminSidebarData = [
                 path: '/scop/pago_nomina',
                 icon: <FaIcons.FaCartPlus />
             },
-            {
-                title: 'Pago proveedor',
-                path: '/scop/pago_proveedor',
-                icon: <FaIcons.FaCartPlus />
-            },
+            // {
+            //     title: 'Pago proveedor',
+            //     path: '/scop/pago_proveedor',
+            //     icon: <FaIcons.FaCartPlus />
+            // },
         ]
     },
-    {
-        title: 'Recepcion & Despacho',
-        path: '/scop/recepción_despacho',
-        icon: <FaIcons.FaCartPlus />
-    },
-    {
-        title: 'Proveedor',
-        path: '/scop/proveedor',
-        icon: <FaIcons.FaCartPlus />
-    },
+    // {
+    //     title: 'Recepcion & Despacho',
+    //     path: '/scop/recepción_despacho',
+    //     icon: <FaIcons.FaCartPlus />
+    // },
+    // {
+    //     title: 'Proveedor',
+    //     path: '/scop/proveedor',
+    //     icon: <FaIcons.FaCartPlus />
+    // },
     {
         title: 'Inventario',
         path: '/scop/inventario',
