@@ -17,6 +17,7 @@ import DispRecepPage from '../pages/DispRecepPage';
 import SupplierPage from '../pages/SupplierPage';
 import WelcomePage from '../pages/WelcomePage';
 import SwapExchange from '../pages/SwapExchange'
+import ProductUnitPage from '../pages/ProductUnitPage';
 
 
 export default function AdminRoutes() {
@@ -38,8 +39,7 @@ export default function AdminRoutes() {
             <Route exact path='/scop/proveedor' element={<SupplierPage />} />
             <Route exact path='/scop/inventario' element={<InventoryPage />} />
             <Route exact path='/scop/tasa_cambio' element={<SwapExchange />} />
-
-            
+            <Route exact path='/scop/unidad_produccion' element={<ProductUnitPage />} />
         </Routes>
     </>
     )

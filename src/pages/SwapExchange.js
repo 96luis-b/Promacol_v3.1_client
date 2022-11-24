@@ -57,6 +57,8 @@ const SwapExchange = () => {
                 alert(response.message)
                 return console.error(response.message)
             }
+            console.log("body: ", response.body)
+            setListExchange(response.body)
             alert(response.message)        
         } catch (e) {
             alert(e)
