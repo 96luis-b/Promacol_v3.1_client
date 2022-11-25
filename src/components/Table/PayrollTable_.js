@@ -21,7 +21,6 @@ const rows = [
 ];
 
 export default function AcccessibleTable({ production }) {
-  console.log("production: ", production)
   return (
     <TableContainer component={Paper} >
       <Table sx={{}} aria-label="caption table">

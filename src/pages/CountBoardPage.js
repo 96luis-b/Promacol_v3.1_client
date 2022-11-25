@@ -120,7 +120,7 @@ const CountBoardPage = () => {
 			if (response.status != 200) {
 				console.error("error: ", response.message)
 				cleanFields()
-				handleCloseLoader()
+				handleUnactive()
 				alert(response.message)
 				return
 			}

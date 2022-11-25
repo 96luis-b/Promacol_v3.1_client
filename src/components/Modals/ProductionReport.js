@@ -22,6 +22,7 @@ import Box from '@mui/material/Box';
 
 export default function AlertDialog({ open, handleOpen, handleClose, data, turnPage, group, date, time }) {
   let totalUnitGroup = 0, colSpan = group[0].category[0].production?.length || 1;
+  let totalAmountProduct = []
   console.log("group: ", group)
   return (
     <div>
@@ -43,7 +44,7 @@ export default function AlertDialog({ open, handleOpen, handleClose, data, turnP
             {`Hora:${time}`}
           </DialogContentText>
           <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+            <Table sx={{ width: "1000px" }} size="large" aria-label="a dense table">
               <TableHead>
                 <TableRow>
                   <TableCell align="right">Nro</TableCell>
@@ -55,38 +56,44 @@ export default function AlertDialog({ open, handleOpen, handleClose, data, turnP
                 </TableRow>
               </TableHead>
               {/* <TableBody> */}
-                {group.map((row, i) => (
-                  <TableBody key={i}>
-                    {row.category.map((elem, z, ob) => {
-                      let totalUnit = 0
-                      return <TableRow
-                        key={z}
-                        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                      >
-                        <TableCell align="right">{z + 1}</TableCell>
-                        <TableCell align="right">{row.job_name}</TableCell>
-                        <TableCell align="right">{elem.emp_code}</TableCell>
-                        <TableCell align="right">{`${elem.name1} ${elem.name2} ${elem.lastname1} ${elem.lastname2}`}</TableCell>
-                        {elem.production
-                          ? elem.production.map((p, j, index) => {
-                            if (index) totalUnit = parseInt(totalUnit) + parseInt(p.quantity)
-                            if (j + 1 == index?.length || false) { totalUnitGroup = parseInt(totalUnitGroup) + parseInt(totalUnit) }
-                            return <TableCell align="right" key={j}>{`${p?.prod_name}: ${p?.quantity}`}</TableCell>
-                          })
-                          : <TableCell align="center">---</TableCell>
-                        }
-                        <TableCell align="right">{totalUnit}</TableCell>
-                      </TableRow>
-                    })}
-                  </TableBody>
-                ))}
+              {group.map((row, i) => (
+                <TableBody key={i}>
+                  {row.category.map((elem, z, ob) => {
+                    let totalUnit = 0
+                    return <TableRow
+                      key={z}
+                      sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                    >
+                      <TableCell align="right">{z + 1}</TableCell>
+                      <TableCell align="right">{row.job_name}</TableCell>
+                      <TableCell align="right">{elem.emp_code}</TableCell>
+                      <TableCell align="right">{`${elem.name1} ${elem.name2} ${elem.lastname1} ${elem.lastname2}`}</TableCell>
+                      {elem.production
+                        ? elem.production.map((p, j, index) => {
+                          if(totalAmountProduct[j] == undefined){totalAmountProduct[j] = 0}
+                          totalAmountProduct[j] +=  parseInt(p.quantity)
+                          if (index) totalUnit = parseInt(totalUnit) + parseInt(p.quantity)
+                          if (j + 1 == index?.length || false) { totalUnitGroup = parseInt(totalUnitGroup) + parseInt(totalUnit) }
+                          return <TableCell align="right" key={j}>{`${p?.prod_name}: ${p?.quantity}`}</TableCell>
+                        })
+                        : <TableCell align="center">---</TableCell>
+                      }
+                      <TableCell align="right">{totalUnit}</TableCell>
+                    </TableRow>
+                  })}
+                </TableBody>
+              ))}
               {/* </TableBody> */}
             </Table>
-            <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+            <Table sx={{ width: "1000px" }} size="large" aria-label="a dense table">
               <TableHead>
                 <TableRow>
-                  <TableCell sx={{ background: "#00dfff" }} align="left" colSpan={3}>Total</TableCell>
-                  <TableCell sx={{ background: "#00dfff" }} align="right">{totalUnitGroup}</TableCell>
+                  <TableCell sx={{ background: "#00dfff" }} align="left" colSpan={5}>Total</TableCell>
+                  {totalAmountProduct.map(amonutProd => {
+                    return <TableCell sx={{ background: "#00dfff", width: "85px" }} align="center">{amonutProd}</TableCell>
+                  })
+                  }
+                  <TableCell sx={{ background: "#00dfff", width: "0" }} align="right">{totalUnitGroup}</TableCell>
                 </TableRow>
               </TableHead>
             </Table>

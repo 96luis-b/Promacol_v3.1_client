@@ -73,7 +73,9 @@ export default function PayrollEmployeeReport({ open, handleOpen, handleClose, d
                                                         <TableCell align="right">{`${row.name1} ${row.name2} ${row.lastname1} ${row.lastname2}`}</TableCell>
                                                         <TableCell align="right">{row.id_number}</TableCell>
                                                         {r.payroll_detail.map((prod, z) => {
-                                                            total_bs = total_bs + prod.total_bs
+                                                            console.log("total_bs: ", total_bs)
+                                                            console.log("prod.total_bs: ", prod.total_bs)
+                                                            total_bs = parseFloat(total_bs) + parseFloat(prod.total_bs)
                                                             total_value = total_value + prod.quantity
                                                             return <TableCell align="right" key={z}>{`${prod.prod_name}: ${prod.quantity}`}</TableCell>
                                                         })

@@ -9,7 +9,6 @@ import Grid from '@mui/material/Grid';
 
 
 export default function PayrollTable({rows}) {
-    console.log("row: ", rows)
   return (
     <Box
       sx={{

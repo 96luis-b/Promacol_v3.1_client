@@ -44,6 +44,11 @@ const PayrollPage = () => {
     }
   }
 
+  const handleChangeSwap = (value)=>{
+    let newPayDollar = totalValues.totalDollar - (value*totalValues.rate)
+    setTotalValues({ ...totalValues, payDollar: newPayDollar, payBs:  value})
+  }
+
   const executePay = async () => {
     try {
       let response = await payEmployee({
@@ -176,11 +181,24 @@ const PayrollPage = () => {
               </Grid>
               <Grid item xs={2} sx={{ textAlign: 'center' }}>
                 <h2>Dolares a pagar:</h2>
-                <h1 style={{ color: "red" }}>{totalValues.payDollar}</h1>
+                {/* <h1 style={{ color: "red" }}>{totalValues.payDollar}</h1> */}
+                <input style={{ width: "30%", fontSize:"30px", fontWeight: "bold", color:"red" }}
+                  onChange={(e)=>handleChangeSwap()}
+                  onKeyPress={(e) => { if (e.key == "Enter") { handleSubmit() } }}
+                  type="number"
+                  step="0.01"
+                  value= {totalValues.payDollar} />
               </Grid>
               <Grid item xs={2} sx={{ textAlign: 'center' }}>
                 <h2>Diferencia Bs:</h2>
-                <h1 style={{ color: "red" }}>{totalValues.payBs}</h1>
+                {/* <h1 style={{ color: "red" }}>{totalValues.payBs}</h1> */}
+                {/* <input style={{ width: "30%",  border: "none", outline: "none" }} */}
+                <input style={{ width: "30%", fontSize:"30px", fontWeight: "bold", color:"red" }}
+                  onChange={(e)=>handleChangeSwap(e.target.value)}
+                  onKeyPress={(e) => { if (e.key == "Enter") { handleSubmit() } }}
+                  type="number"
+                  step="0.01"
+                  value= {totalValues.payBs} />
               </Grid>
               <Grid item xs={1}></Grid>
             </Grid>
