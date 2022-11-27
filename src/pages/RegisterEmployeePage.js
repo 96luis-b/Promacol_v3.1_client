@@ -9,9 +9,6 @@ import SearchInput from '../styledComponents/SearchInput'
 import { signupEmployee, getJob, updateEmployee, searchEmployee } from '../api/employee'
 import LoaderDialog from '../components/Modals/LoaderDialog';
 
-
-// import { searchEmployee } from '../api/employee'
-
 const initialData = {
     emp_code: '',
     name1: '',
@@ -29,7 +26,6 @@ export default function RegisterEmployeePage() {
     const [option, setOption] = useState(0);
     const [data, setData] = useState(initialData)
     const [loader, setLoader] = useState(false);
-    // const [employee, setEmployee] = useState({})
     const [value, setValue] = useState("")
     useEffect(() => {
         async function fetchData() {
@@ -126,20 +122,26 @@ export default function RegisterEmployeePage() {
 
     return (
         <>
-            <Box sx={{
-                display: 'flex',
-                justifyContent: 'flex-end',
-                px: 1,
-                mx: 1,
-                bgcolor: 'background.paper',
-                borderRadius: 1,
-            }}
+            <Grid container
+                direction="row"
+                alignItems="center"
             >
-                <SearchInput
-                    onChange={handleChange}
-                    onSubmit={handleSubmit}
-                    value={value} />
-            </Box>
+                <Grid item xs={2}></Grid>
+                <Grid item xs={7}
+                    container
+                    justifyContent="center"
+                >
+                    <h1>Registro de empleados</h1>
+                </Grid>
+                <Grid item xs={2}>
+                    <SearchInput
+                        onChange={handleChange}
+                        onSubmit={handleSubmit}
+                        value={value}
+                    />
+                </Grid>
+                <Grid item xs={1}></Grid>
+            </Grid>
             <FormRegisterEmployee
                 options={options}
                 option={option}

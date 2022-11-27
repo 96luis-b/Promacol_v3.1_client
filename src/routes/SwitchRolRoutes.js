@@ -1,8 +1,4 @@
-import React, { useState } from 'react'
-import { BrowserRouter, Routes, Route, Router, Navigate } from 'react-router-dom';
-
-
-import Sidebar from '../components/Sidebar';
+import React from 'react'
 
 import AdminRoutes from './AdminRoutes'
 import CashierRoutes from './CashierRoutes'
@@ -11,8 +7,6 @@ import WeiSupRoutes from './WeiSupRoutes'
 import AnalystRoutes from './AnalystRoutes'
 
 export default function SwitchRolRoutes() {
-  // const auth = useAuth()
-
   const renderSwitch = () => {
     switch (1) {
       case 1:

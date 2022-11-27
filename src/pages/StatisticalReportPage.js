@@ -13,7 +13,7 @@ import AlertDialog from '../components/Modals/ProductionReport'
 import { getEmpProduction } from '../api/employee';
 import { getPayrollEmployeeReport } from '../api/payroll';
 import PayrollEmployeeReport from '../components/Modals/PayrollEmployeeReport';
-import { dateTime } from '../utils/DataTime';
+import { dateTime } from '../helpers/DataTime';
 
 const options = [
 	{
@@ -41,7 +41,6 @@ export default function StatisticalReportPage() {
 	const [celda, setCelda] = useState(0)
 
 	const handleChange = (event) => {
-		console.log("event: ", event.target.value)
 		setOption(event.target.value);
 	};
 	const handleChangeDate = (type, value) => {
@@ -50,16 +49,13 @@ export default function StatisticalReportPage() {
 	}
 
 	const handleOpen = () => {
-		console.log("handleOpen: ", open)
 		setOpen(true)
 	};
 	const handleClose = () => {
-		console.log("handleClose")
 		setOpen(false);
 	}
 
 	const turnPage = (string) => {
-		console.log("data.length: ", data.length)
 		let index = data?.length || 0
 		if (string == "back") {
 			let i = celda - 1
@@ -88,7 +84,6 @@ export default function StatisticalReportPage() {
 						alert(response.message)
 						return
 					}
-					console.log("data: ", response.body)
 					setData(response.body)
 					setGroup([response.body[0]])
 					handleOpen()
@@ -103,12 +98,6 @@ export default function StatisticalReportPage() {
 					setData(response.body)
 					handleOpen()
 					break
-				case 3:
-					console.log(1);
-					break;
-				case 4:
-					console.log(2);
-					break;
 				default:
 					console.log('default');
 			}

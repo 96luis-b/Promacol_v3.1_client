@@ -33,7 +33,6 @@ const ReceptionPage = () => {
                             <Switch {...label} defaultChecked />
                             <h3>Pesaje Hidratado</h3>
                         </Stack>
-                        {/* <FormDryWeight/> */}
                         <FormHydratedWeight />
                         <TextField
                             id="outlined-basic"
@@ -48,7 +47,6 @@ const ReceptionPage = () => {
                         </Box>
                     </GridContainerCenter>
                     <GridContainerCenter item xs={8}>
-                        {/* <DryWeightTable /> */}
                         <HydratedWeightTable />
                     </GridContainerCenter>
                 </Grid>

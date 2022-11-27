@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { GridContainerCenter } from '../styledComponents/GridContainerCenter'
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-// import { DataPersonLarge, DataPersonMedium } from '../components/DataPerson';
 import { DataPerson } from '../components/DataPerson';
 import { PersonCircleIcon } from '../styledComponents/PersonCircleIcon';
 import { Grid } from '@mui/material';
@@ -44,9 +43,14 @@ const PayrollPage = () => {
     }
   }
 
-  const handleChangeSwap = (value)=>{
-    let newPayDollar = totalValues.totalDollar - (value*totalValues.rate)
-    setTotalValues({ ...totalValues, payDollar: newPayDollar, payBs:  value})
+  const handleChangeSwap = (item, value) => {
+    if(item == "bolivar"){
+      let newPayDollar = (totalValues.totalDollar - (value * totalValues.rate)).toFixed(2)
+      setTotalValues({ ...totalValues, payDollar: newPayDollar, payBs: value })
+      return
+    }
+    let newPayBs = (totalValues.totalBs - (value / totalValues.rate)).toFixed(2)
+    setTotalValues({ ...totalValues, payDollar: value, payBs: newPayBs })
   }
 
   const executePay = async () => {
@@ -61,7 +65,10 @@ const PayrollPage = () => {
         alert(response.message)
         return
       }
-      console.log("response: ", response.message)
+      alert(response.message)
+      setEmployee(null)
+      setTotalValues(null)
+      setProduction(null)
     } catch (e) {
       alert(e)
     }
@@ -78,13 +85,10 @@ const PayrollPage = () => {
       setProduction(response.body.production)
       setEmployee(response.body.employee)
       setTotalValues(response.body.totalValues)
-    } catch (e) {
-      alert(e)
+    } catch (error) {
+      console.error("error: ", error)
+      alert(error)
     }
-
-
-
-
   }
 
   return (
@@ -181,24 +185,21 @@ const PayrollPage = () => {
               </Grid>
               <Grid item xs={2} sx={{ textAlign: 'center' }}>
                 <h2>Dolares a pagar:</h2>
-                {/* <h1 style={{ color: "red" }}>{totalValues.payDollar}</h1> */}
-                <input style={{ width: "30%", fontSize:"30px", fontWeight: "bold", color:"red" }}
-                  onChange={(e)=>handleChangeSwap()}
+                <input style={{ width: "40%", fontSize: "30px", fontWeight: "bold", color: "red", border: "none", outline: "none" }}
+                  onChange={(e) => handleChangeSwap("dolar", e.target.value)}
                   onKeyPress={(e) => { if (e.key == "Enter") { handleSubmit() } }}
                   type="number"
                   step="0.01"
-                  value= {totalValues.payDollar} />
+                  value={totalValues.payDollar} />
               </Grid>
               <Grid item xs={2} sx={{ textAlign: 'center' }}>
                 <h2>Diferencia Bs:</h2>
-                {/* <h1 style={{ color: "red" }}>{totalValues.payBs}</h1> */}
-                {/* <input style={{ width: "30%",  border: "none", outline: "none" }} */}
-                <input style={{ width: "30%", fontSize:"30px", fontWeight: "bold", color:"red" }}
-                  onChange={(e)=>handleChangeSwap(e.target.value)}
+                <input style={{ width: "40%", fontSize: "30px", fontWeight: "bold", color: "red", border: "none", outline: "none" }}
+                  onChange={(e) => handleChangeSwap("bolivar", e.target.value)}
                   onKeyPress={(e) => { if (e.key == "Enter") { handleSubmit() } }}
                   type="number"
                   step="0.01"
-                  value= {totalValues.payBs} />
+                  value={totalValues.payBs} />
               </Grid>
               <Grid item xs={1}></Grid>
             </Grid>

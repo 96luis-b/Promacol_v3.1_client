@@ -24,13 +24,8 @@ import FormControl from '@mui/material/FormControl';
 import useAuth from '../contexts/useAuth'
 import { useNavigate } from 'react-router-dom';
 
-// obtener menu de componente SidebarData
-// pasarle un parametro, para obtener un menu determinado 
-// const sidebarDataInit = {}
 
 const SidebarData = (user) => {
-    // const auth = useAuth()
-    // const user = auth.user
     let data;
     switch (user.role[0]) {
         case 1:
@@ -53,7 +48,6 @@ const Sidebar = () => {
     
     const auth = useAuth()
     const [sidebar, setSidebar] = useState(false)
-    // const [sidebarData, setSidebarData] = useState([AdminSidebarData])
     const [sidebarData, setSidebarData] = useState(SidebarData(auth.user))
     const showSidebar = () => setSidebar(!sidebar)
     let location = useLocation();

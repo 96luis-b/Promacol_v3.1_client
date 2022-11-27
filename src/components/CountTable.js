@@ -1,14 +1,10 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { GridContainerCenter } from '../styledComponents/GridContainerCenter'
 
-import Grid from '@mui/material/Grid';
-import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import { H1, H2, H3, SH1 } from '../styledComponents/Heading'
+import { H2} from '../styledComponents/Heading'
 
 
 import { IoMdRemove } from 'react-icons/io';

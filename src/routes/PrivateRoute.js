@@ -1,8 +1,6 @@
 import React from 'react'
 import { Navigate, Route, useLocation } from 'react-router-dom'
-// import useAuth from '../auth/useAuth'
 import useAuth from '../contexts/useAuth'
-
 
 export default function PrivateRoute({ component: Component, ...rest }) {
     const auth = useAuth()

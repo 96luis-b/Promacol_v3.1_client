@@ -2,16 +2,9 @@ import React, { useEffect, useState, useContext } from 'react'
 
 import Container from '@mui/material/Container';
 import TextField from '@mui/material/TextField';
-import { Grid } from '@mui/material'
 import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
-import MenuItem from '@mui/material/MenuItem';
-import MainContext from '../contexts/MainContext'
 import { GridContainerCenter } from '../styledComponents/GridContainerCenter';
 import { TextFieldSelect } from './TextFieldSelect';
-
-import { signupEmployee, getJob, updateEmployee } from '../api/employee'
-import { initial } from '../contexts/EmployeeContext'
 
 const FormRegisterEmployee = ({
         options, 

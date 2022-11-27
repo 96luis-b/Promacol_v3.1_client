@@ -1,10 +1,8 @@
 import React from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
 
 import CountBoardPage from '../pages/CountBoardPage'
-import NotFoundPage from '../pages/NotFoundPage'
-
 import AssistancePage from '../pages/AssistancePage'
 import RegisterEmployeePage from '../pages/RegisterEmployeePage'
 import StatisticalReportPage from '../pages/StatisticalReportPage'

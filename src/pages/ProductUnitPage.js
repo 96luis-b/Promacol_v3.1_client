@@ -11,25 +11,6 @@ import { GridContainerCenter } from '../styledComponents/GridContainerCenter';
 import { getProductPrice } from '../api/currency';
 import { getExchangeRate, updateProdPrice } from '../api/price';
 
-
-// function createData(
-//   name,
-//   calories,
-//   fat,
-//   carbs,
-//   protein,
-// ) {
-//   return { name, calories, fat, carbs, protein };
-// }
-
-// const rows = [
-//   createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-//   createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-//   createData('Eclair', 262, 16.0, 24, 6.0),
-//   createData('Cupcake', 305, 3.7, 67, 4.3),
-//   createData('Gingerbread', 356, 16.0, 49, 3.9),
-// ];
-
 export default function ProductUnitPage() {
 
     const [data, setData] = useState([])  
@@ -59,7 +40,6 @@ export default function ProductUnitPage() {
     }, [])
 
     const handleChange = (i, j, value)=>{
-        // console.log("currency: ", currency)
         let newArr = [...data];
         currences.forEach((currency, index)=>{
             if(currency.input_currency != newArr[i].group[j].name.toUpperCase()){
@@ -74,7 +54,6 @@ export default function ProductUnitPage() {
 
     const handleSubmit = async()=>{
         try{
-            console.log("updatePrice: ", updatePrice)
             let response = await updateProdPrice(updatePrice)
             if(response.status != 200){
                 console.log(response.message)
@@ -130,18 +109,3 @@ export default function ProductUnitPage() {
     </>
   );
 }
-
-
-// const ProductUnitPage = () => {
-//     return (
-//         <>
-            // <GridContainerCenter sx={{ width: "100%", height: "90vh" }}>
-            //     <GridContainerCenter sx={{ width: "40%", height: "60%" }}>
-                
-            //     </GridContainerCenter>
-            // </GridContainerCenter>
-//         </>
-//     )
-// }
-
-// export default ProductUnitPage

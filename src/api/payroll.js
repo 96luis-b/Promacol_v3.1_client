@@ -1,5 +1,6 @@
 import api from '../api/server'
 
+let storage = JSON.parse(localStorage.getItem('user'))
 
 export const getPayrollEmployee = async (data) => {
     const res = await fetch(`${api}payroll/getPayrollEmployee`, {
@@ -14,11 +15,13 @@ export const getPayrollEmployee = async (data) => {
 }
 
 export const payEmployee = async (data) => {
+
   const res = await fetch(`${api}payroll/payEmployee`, {
     method: "POST",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
+      "x-access-token": `${storage.token}`
     },
     body: JSON.stringify(data),
   });

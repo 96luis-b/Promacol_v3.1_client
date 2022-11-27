@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from 'react'
 import { loginAPI, logoutAPI } from '../api/auth'
-import { deteleSingleCount } from '../utils/singleCount'
+import { deteleCount } from '../helpers/singleCount'
 
 
 export const AuthContext = createContext()
@@ -38,7 +38,7 @@ const AuthProvider = ({ children }) => {
                 const res = await logoutAPI()
                 if (res.status != 200) {throw Error(res.message)}
                     setUser(null)
-                    deteleSingleCount()
+                    deteleCount()
                     return true
             } catch (error) {
                 alert(error.message)

@@ -3,13 +3,17 @@ import * as FaIcons from 'react-icons/fa'
 import * as AiIcons from 'react-icons/ai'
 import * as IoIcons from 'react-icons/io'
 import * as RiIcons from 'react-icons/ri'
-import * as MdGroup from 'react-icons/md'
+import * as MdIcons from 'react-icons/md'
+import * as BsIcons from 'react-icons/bs'
+import * as TbIcons from 'react-icons/tb'
+import * as CiIcons from 'react-icons/ci'
+import * as HiIcons from 'react-icons/hi'
+
 import useAuth from '../contexts/useAuth'
 
 
 export const SidebarData = () => {
     const auth = useAuth()
-    console.log("user: ", auth.user)
     let data;
     switch (7) {
         case 7:
@@ -24,7 +28,6 @@ export const SidebarData = () => {
         default:
             console.log('');
     }
-    // console.log("daaaataaa: ", data)
     return data
 }
 
@@ -117,62 +120,62 @@ export const AdminSidebarData = [
     {
         title: 'Obreros',
         // path: '/scop',
-        icon: <AiIcons.AiFillHome />,
+        icon: <MdIcons.MdGroups />,
         iconClosed: <RiIcons.RiArrowDownSFill />,
         iconOpen: <RiIcons.RiArrowUpSFill />,
         subNav: [
             {
                 title: 'Asistencia',
                 path: '/scop/obrero/asistencia',
-                icon: <IoIcons.IoIosPaper />,
+                icon: <MdIcons.MdHowToReg />,
             },
             {
                 title: 'Registrar',
                 path: '/scop/obrero/registrar',
-                icon: <IoIcons.IoIosPaper />,
+                icon: <MdIcons.MdAssignment />,
             },
-            {
-                title: 'Asistencia asistida',
-                path: '/scop/obrero/asistencia_asistida',
-                icon: <FaIcons.FaCartPlus />
-            },
+            // {
+            //     title: 'Asistencia asistida',
+            //     path: '/scop/obrero/asistencia_asistida',
+            //     icon: <FaIcons.FaCartPlus />
+            // },
             {
                 title: 'Tablero de conteo',
                 path: '/scop/obrero/tablero_conteo',
-                icon: <FaIcons.FaCartPlus />
+                icon: <BsIcons.BsFileBarGraphFill />
             },
         ]
     },
     {
         title: 'Reportes',
         // path: '/scop',
-        icon: <AiIcons.AiFillHome />,
+        icon: <TbIcons.TbReport />,
         iconClosed: <RiIcons.RiArrowDownSFill />,
         iconOpen: <RiIcons.RiArrowUpSFill />,
         subNav: [
             {
                 title: 'Estadisticos',
                 path: '/scop/reporte/estadistico',
-                icon: <IoIcons.IoIosPaper />,
+                icon: <TbIcons.TbReportSearch />,
             },
             {
                 title: 'Graficos',
                 path: '/scop/reporte/grafico',
-                icon: <IoIcons.IoIosPaper />,
+                icon: <TbIcons.TbReportAnalytics />,
             },
         ]
     },
     {
         title: 'Inserción de datos',
         // path: '/scop',
-        icon: <AiIcons.AiFillHome />,
+        icon: <CiIcons.CiSaveDown2 />,
         iconClosed: <RiIcons.RiArrowDownSFill />,
         iconOpen: <RiIcons.RiArrowUpSFill />,
         subNav: [
             {
                 title: 'Extracción de producto',
                 path: '/scop/extrac_producto',
-                icon: <FaIcons.FaCartPlus />
+                icon: <RiIcons.RiDatabaseLine />
             },
             // {
             //     title: 'Pesaje',
@@ -184,40 +187,40 @@ export const AdminSidebarData = [
     {
         title: 'Unidades de producción',
         path: '/scop/unidad_produccion',
-        icon: <AiIcons.AiFillHome />,
+        icon: <CiIcons.CiViewList />,
         iconClosed: <RiIcons.RiArrowDownSFill />,
         iconOpen: <RiIcons.RiArrowUpSFill />,
     },
     {
         title: 'Moneda',
         // path: '/scop',
-        icon: <AiIcons.AiFillHome />,
+        icon: <BsIcons.BsCurrencyExchange />,
         iconClosed: <RiIcons.RiArrowDownSFill />,
         iconOpen: <RiIcons.RiArrowUpSFill />,
         subNav: [
             {
                 title: 'Lista de monedas',
                 path: '/scop/lista_moneda',
-                icon: <FaIcons.FaCartPlus />
+                icon: <RiIcons.RiFileList3Line />
             },
             {
                 title: 'Tasa de cambio',
                 path: '/scop/tasa_cambio',
-                icon: <FaIcons.FaCartPlus />
+                icon: <RiIcons.RiExchangeDollarLine />
             },
         ]
     },
     {
         title: 'Pagos',
         // path: '/scop',
-        icon: <AiIcons.AiFillHome />,
+        icon: <TbIcons.TbCash />,
         iconClosed: <RiIcons.RiArrowDownSFill />,
         iconOpen: <RiIcons.RiArrowUpSFill />,
         subNav: [
             {
                 title: 'Pago de nomina',
                 path: '/scop/pago_nomina',
-                icon: <FaIcons.FaCartPlus />
+                icon: <HiIcons.HiUser />
             },
             // {
             //     title: 'Pago proveedor',
@@ -236,11 +239,11 @@ export const AdminSidebarData = [
     //     path: '/scop/proveedor',
     //     icon: <FaIcons.FaCartPlus />
     // },
-    {
-        title: 'Inventario',
-        path: '/scop/inventario',
-        icon: <FaIcons.FaCartPlus />
-    },
+    // {
+    //     title: 'Inventario',
+    //     path: '/scop/inventario',
+    //     icon: <FaIcons.FaCartPlus />
+    // },
 
 
 ]

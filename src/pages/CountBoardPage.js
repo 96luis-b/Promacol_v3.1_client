@@ -17,6 +17,7 @@ import {
 } from '../helpers/singleCount'
 
 import LoaderDialog from '../components/Modals/LoaderDialog';
+import { Grid } from '@mui/material';
 
 
 const CountBoardPage = () => {
@@ -39,11 +40,10 @@ const CountBoardPage = () => {
 
 	const handleChange = (v) => {
 		setInputText(v)
-	} 
+	}
 
 	const handleMoreLess = async (prod, v, quantity) => {
 		let status = true
-		// let p = Object.assign([] , production)
 		let p = JSON.parse(JSON.stringify(production))
 		let product = {}
 		let response
@@ -53,7 +53,6 @@ const CountBoardPage = () => {
 					status = false
 					return
 				}
-				console.log("value: ", v)
 				element.quantity = quantity + v
 				product.prod_name = element.prod_name
 				product.prod_id = element.prod_id
@@ -64,12 +63,6 @@ const CountBoardPage = () => {
 		if (status) {
 			try {
 				handleActive()
-				// setProduction(p)
-				// setTotal(total + v)
-				// let s = save({ employee, production, prod_id: prod.prod_id }, v)
-				// let group = saveGroupCount(production, v, prod.prod_id)
-				// setSingleCount(s)
-				// setGroupCount(group)
 				response = await moreLess({
 					product: product,
 					employee: {
@@ -78,10 +71,6 @@ const CountBoardPage = () => {
 					}
 				});
 				if (response.status != 200) return console.error("error: ", response.message)
-				// error al realizar peticiones consecutivas
-				// el cambio de estado de production y total no se
-				// efectua rapidamente y se desactualiza 
-				console.log("response: ", response)
 				setProduction(p)
 				setTotal(total + v)
 				let s = save({ employee, production, prod_id: prod.prod_id }, v)
@@ -116,7 +105,6 @@ const CountBoardPage = () => {
 		try {
 			handleActive()
 			let response = await searchCountEmployee(inputText);
-			console.log("response: ", response)
 			if (response.status != 200) {
 				console.error("error: ", response.message)
 				cleanFields()
@@ -137,20 +125,26 @@ const CountBoardPage = () => {
 
 	return (
 		<>
-			<Box sx={{
-				display: 'flex',
-				justifyContent: 'flex-end',
-				px: 1,
-				mx: 1,
-				bgcolor: 'background.paper',
-				borderRadius: 1,
-			}}
+			<Grid container
+				direction="row"
+				alignItems="center"
 			>
-				<SearchInput
-					onChange={handleChange}
-					onSubmit={handleSubmit}
-					value={inputText} />
-			</Box>
+				<Grid item xs={2}></Grid>
+				<Grid item xs={7}
+					container
+					justifyContent="center"
+				>
+					<h1>Tablero de conteo</h1>
+				</Grid>
+				<Grid item xs={2}>
+					<SearchInput
+						onChange={handleChange}
+						onSubmit={handleSubmit}
+						value={inputText}
+					/>
+				</Grid>
+				<Grid item xs={1}></Grid>
+			</Grid>
 			{employee != null && production != null
 				? <Container maxWidth="xl" sx={{ height: 'calc(100vh - 70px) ' }}>
 					<BoardTop employee={employee} total={total} />
@@ -166,10 +160,6 @@ const CountBoardPage = () => {
 				</Container>
 				: null
 			}
-			{/* {loader
-				? <LoaderDialog open={loader} handleClose={handleCloseLoader} />
-				: null
-			} */}
 		</>
 	)
 }

@@ -3,7 +3,6 @@ import MainContext from './MainContext'
 
 
 export const switchSearch = (location) => {
-    // console.log("location: ", location)
     switch (location) {
         case "/scop/obrero/asistencia":
             return assistanceSearch
@@ -33,11 +32,7 @@ const countBoardSearch = (e, value) => {
 const RegisterStaffSearch = (e, value) => {
     const { contextValue } = useContext(MainContext)
     console.log("currencies: ", contextValue.tested)
-    // console.log("e: ", e)
     console.log("value: ", value)
-    // if ("Enter" == e.key) {
-    //     return console.log("registerStaffSearch")
-    // }
 }
 
 const payrollSearch = (e, value) => {

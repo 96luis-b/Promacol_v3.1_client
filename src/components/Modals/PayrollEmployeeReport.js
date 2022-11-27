@@ -17,9 +17,6 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 
-
-
-// export default function PayrollEmployeeReport({ open, handleOpen, handleClose, data, turnPage, group }) {
 export default function PayrollEmployeeReport({ open, handleOpen, handleClose, data, datePayroll, timePayroll, time, date }) {
     return (
         <div>
@@ -90,18 +87,7 @@ export default function PayrollEmployeeReport({ open, handleOpen, handleClose, d
                                     </TableBody>
                                 })
                                 }
-                            {/* </TableBody> */}
                         </Table>
-
-
-                        {/* <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
-                            <TableHead>
-                                <TableRow>
-                                    <TableCell sx={{ background: "#00dfff" }} align="left" colSpan={3}>Total</TableCell>
-                                    <TableCell sx={{ background: "#00dfff" }} align="right">{totalUnitGroup}</TableCell>
-                                </TableRow>
-                            </TableHead>
-                        </Table> */}
                     </TableContainer>
                 </DialogContent>
                 <Grid

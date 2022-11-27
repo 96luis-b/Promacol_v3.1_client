@@ -83,7 +83,6 @@ export default function AlertDialog({ open, handleOpen, handleClose, data, turnP
                   })}
                 </TableBody>
               ))}
-              {/* </TableBody> */}
             </Table>
             <Table sx={{ width: "1000px" }} size="large" aria-label="a dense table">
               <TableHead>

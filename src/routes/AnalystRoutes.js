@@ -1,13 +1,9 @@
 import React from 'react'
 
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-
 import Sidebar from '../components/Sidebar';
 import CountBoardPage from '../pages/CountBoardPage';
-
 import NotFoundPage from '../pages/NotFoundPage'
-import PayrollPage from '../pages/PayrollPage';
-import StatisticalReportPage from '../pages/StatisticalReportPage';
 import WelcomePage from '../pages/WelcomePage';
 import AssistancePage from '../pages/AssistancePage'
 

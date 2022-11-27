@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react'
 
-import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -21,12 +20,10 @@ const SwapExchange = () => {
         async function fetchData() {
             try {
                 let response = await getExchangeRate();
-                console.log("responseaa: ", response)
                 if (response.status != 200) {
                     alert(response.message)
                     return console.error(response.message)
                 }
-                console.log("response: ", response)
                 setExchange(response?.body[0])
                 setListExchange(response.body)
             } catch (e) {
@@ -44,9 +41,7 @@ const SwapExchange = () => {
     }
 
     const handleSwap = () => {
-        console.log("handleSwap")
         const change = listExchange.filter(e => e.exchange_id !== exchange.exchange_id)
-        console.log("change: ", change)
         setExchange(...change)
     };
 
@@ -57,7 +52,6 @@ const SwapExchange = () => {
                 alert(response.message)
                 return console.error(response.message)
             }
-            console.log("body: ", response.body)
             setListExchange(response.body)
             alert(response.message)        
         } catch (e) {
@@ -85,7 +79,7 @@ const SwapExchange = () => {
                                     <TextField style={{ width: "80%" }} autoComplete="off" id="outlined-basic" value={1} variant="outlined" />
                                 </Grid>
                                 <Grid item xs={12}>
-                                    <SwapVertIcon sx={{ fontSize: 40, my: 4 }} onClick={() => handleSwap()} />
+                                    <SwapVertIcon sx={{ fontSize: 50, my: 4, color: "#0cc1ed" }} onClick={() => handleSwap()} />
                                 </Grid>
                                 <Grid container
                                     item 

@@ -1,7 +1,5 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route, Navigate, Link, Outlet } from 'react-router-dom';
-
-
 import LoginPage from '../pages/LoginPage'
 import NotFoundPage from '../pages/NotFoundPage'
 import SwitchRolRoutes from './SwitchRolRoutes'
@@ -9,8 +7,6 @@ import PrivateRoute from './PrivateRoute'
 import PublicRoute from './PublicRoute'
 
 function AppRoutes() {
-
-
 
   return (
     <Routes>

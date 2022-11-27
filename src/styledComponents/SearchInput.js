@@ -12,7 +12,7 @@ export default function SearchInput({ onSubmit, onChange, value, width }) {
         value={value || ''}
         onKeyPress={(e)=> {if(e.key=="Enter"){onSubmit()}}}
         onChange={(e)=>onChange(e.target.value)}
-        sx={{width: `${width || "10%"}`, background:"#fff", borderRadius:"5px", marginLeft:"20px"}}
+        sx={{width: `${width || "100%"}`, background:"#fff", borderRadius:"5px", marginLeft:"20px"}}
         />
   );
 }
