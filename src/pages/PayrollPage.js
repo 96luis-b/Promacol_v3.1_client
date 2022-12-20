@@ -5,12 +5,9 @@ import Button from '@mui/material/Button';
 import { DataPerson } from '../components/DataPerson';
 import { PersonCircleIcon } from '../styledComponents/PersonCircleIcon';
 import { Grid } from '@mui/material';
-import PayrollTable from '../components/Table/PayrollTable';
 import EnhancedTable from '../components/Table/PayrollTable_';
-import ColumnSpanningFunction from '../components/Table/PayrollTable_';
 import TextField from '@mui/material/TextField';
 import SearchInput from '../styledComponents/SearchInput'
-import { searchEmployee } from '../api/employee'
 
 import { getPayrollEmployee, payEmployee } from '../api/payroll'
 

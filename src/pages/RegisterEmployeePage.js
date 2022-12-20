@@ -1,10 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react'
 import FormRegisterEmployee from '../components/FormRegisterEmployee';
-import { GridContainerCenter } from '../styledComponents/GridContainerCenter';
 import { Grid } from '@mui/material'
-import Box from '@mui/material/Box';
-import Sidebar from '../components/Sidebar'
-import Nav from '../styledComponents/Nav'
 import SearchInput from '../styledComponents/SearchInput'
 import { signupEmployee, getJob, updateEmployee, searchEmployee } from '../api/employee'
 import LoaderDialog from '../components/Modals/LoaderDialog';

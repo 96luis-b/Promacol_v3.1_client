@@ -1,20 +1,16 @@
 import React from 'react'
 import Container from '@mui/material/Container';
 import TextField from '@mui/material/TextField';
-import { Grid } from '@mui/material'
 import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
-import MenuItem from '@mui/material/MenuItem';
 
 import { GridContainerCenter } from '../styledComponents/GridContainerCenter';
-import { TextFieldSelect } from './TextFieldSelect';
 
 const FormRegisterVehicle = () => {
     return (
         <>
             <Container
                 maxWidth="lg"
-                >
+            >
                 <GridContainerCenter
                     container
                     direction="column"

@@ -1,6 +1,4 @@
 import React, {useState} from 'react'
-import { Link } from 'react-router-dom'
-import styled from 'styled-components'
 import SidebarLabel from '../styledComponents/SidebarLabel'
 import DropdownLink from '../styledComponents/DropdownLink'
 import SidebarLink from '../styledComponents/SidebarLink'

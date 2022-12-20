@@ -31,12 +31,9 @@ const countBoardSearch = (e, value) => {
 
 const RegisterStaffSearch = (e, value) => {
     const { contextValue } = useContext(MainContext)
-    console.log("currencies: ", contextValue.tested)
-    console.log("value: ", value)
 }
 
 const payrollSearch = (e, value) => {
     if ("Enter" == e.key) {
-        return console.log("assistanceSearch")
     }
 }

@@ -4,10 +4,8 @@ import { GridContainerCenter } from '../styledComponents/GridContainerCenter';
 import { Grid, TextField } from '@mui/material'
 import Switch from '@mui/material/Switch';
 import Stack from '@mui/material/Stack';
-import { DryWeightTable } from '../components/Table/DryWeightTable';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import FormDryWeight from '../components/FormDryWeight';
 import FormHydratedWeight from '../components/FormHydratedWeight';
 import { HydratedWeightTable } from '../components/Table/HydratedWeightTable'
 

@@ -1,7 +1,6 @@
 import React from 'react'
 
-import { SH1, H5, H4} from '../styledComponents/Heading'
-import { GridContainerCenter } from '../styledComponents/GridContainerCenter';
+import { SH1, H4} from '../styledComponents/Heading'
 import { TotalCountBox } from '../styledComponents/TotalCountBox';
 
 

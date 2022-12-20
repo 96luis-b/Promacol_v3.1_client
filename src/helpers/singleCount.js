@@ -45,7 +45,6 @@ export const saveGroupCount = (d, value, prod_id) => {
 
     let pack = getStorage(key2)
     let size = data.length
-    let arr = []
     for (let i = 0; i < size; i++) {
         for (let j = 0; j < pack.length; j++) {
             if(data[i].prod_id == pack[j].prod_id && prod_id == pack[j].prod_id){

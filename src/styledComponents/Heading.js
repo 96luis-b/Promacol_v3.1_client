@@ -37,4 +37,3 @@ export const H5 = styled.h1`
   margin: 0 0;
 `
 
-// export default H1

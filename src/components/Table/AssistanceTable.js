@@ -1,24 +1,20 @@
-import React, {useState, useCallback, useMemo } from 'react'
+import React, { useCallback, useMemo } from 'react'
 
 import { H2 } from '../../styledComponents/Heading';
 import Box from '@mui/material/Box';
-import { DataGrid, GridActionsCellItem } from '@mui/x-data-grid';
-import { AssistanceColumn } from './Columns.js/AssistanceColumn';
-import Button from '@mui/material/Button';
+import { DataGrid } from '@mui/x-data-grid';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Stack from '@mui/material/Stack';
 
-export const AssistanceTable = ({row, nbRows, setRow, ckeckOut}) => {
+export const AssistanceTable = ({ row, nbRows, setRow, ckeckOut }) => {
 
     const deleteUser = useCallback(
         (id) => () => {
-          // setTimeout(() => {
             ckeckOut(id)
             setRow((prevRows) => prevRows.filter((row) => row.id !== id));
-          // });
         },
-        [], 
+        [],
     );
 
     const columns = useMemo(
@@ -60,19 +56,19 @@ export const AssistanceTable = ({row, nbRows, setRow, ckeckOut}) => {
                 width: 95,
                 editable: true,
                 renderCell: (params) => [
-                   
+
                     <Stack direction="row" alignItems="center" spacing={1} key={params.row.id}>
                         <IconButton aria-label="delete" size="large" onClick={deleteUser(params.id)}>
-                            <DeleteIcon fontSize="inherit"/>
+                            <DeleteIcon fontSize="inherit" />
                         </IconButton>
-                    </Stack>                    
+                    </Stack>
                 ],
             },
         ]
     )
 
     return (
-        <div style={{ height: 370, width:"100%" }}>
+        <div style={{ height: 370, width: "100%" }}>
             <Box sx={{ mb: '1rem' }}>
                 <H2>Personal entrante</H2>
             </Box>

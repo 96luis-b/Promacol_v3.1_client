@@ -1,12 +1,7 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import { DataGrid } from '@mui/x-data-grid';
-import Button from '@mui/material/Button';
-import TableCell from '@mui/material/TableCell';
 import { PayrollColumn } from './Columns.js/PayrollColumn'
-
-import Grid from '@mui/material/Grid';
-
 
 export default function PayrollTable({rows}) {
   return (

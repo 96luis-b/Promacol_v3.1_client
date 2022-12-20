@@ -4,7 +4,6 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Fade from '@mui/material/Fade';
 import { Checkbox, FormControlLabel } from '@mui/material';
-import { CheckBox } from '@mui/icons-material';
 
 export default function MenuCountBoard() {
   const [anchorEl, setAnchorEl] = React.useState(null);

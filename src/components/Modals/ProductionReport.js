@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
@@ -16,14 +15,12 @@ import Paper from '@mui/material/Paper';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
 
 
 
 export default function AlertDialog({ open, handleOpen, handleClose, data, turnPage, group, date, time }) {
   let totalUnitGroup = 0, colSpan = group[0].category[0].production?.length || 1;
   let totalAmountProduct = []
-  console.log("group: ", group)
   return (
     <div>
       <Dialog
@@ -55,7 +52,6 @@ export default function AlertDialog({ open, handleOpen, handleClose, data, turnP
                   <TableCell align="center">Total</TableCell>
                 </TableRow>
               </TableHead>
-              {/* <TableBody> */}
               {group.map((row, i) => (
                 <TableBody key={i}>
                   {row.category.map((elem, z, ob) => {

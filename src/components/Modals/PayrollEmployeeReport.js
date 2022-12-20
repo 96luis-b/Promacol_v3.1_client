@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
@@ -13,8 +12,6 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-import ButtonGroup from '@mui/material/ButtonGroup';
-import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 
 export default function PayrollEmployeeReport({ open, handleOpen, handleClose, data, datePayroll, timePayroll, time, date }) {

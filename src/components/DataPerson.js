@@ -1,7 +1,6 @@
 import React from 'react'
 
 import { H1, H2, H3, H4, H5 } from '../styledComponents/Heading'
-import { GridContainerCenter } from '../styledComponents/GridContainerCenter';
 
 export const DataPerson = ({ employee }) => {
 
@@ -30,12 +29,10 @@ export const DataPerson = ({ employee }) => {
 }
 
 export const DataPersonLarge = ({ employee }) => {
-    // let fullName = `${employee?.name1} ${employee?.name2} ${employee?.lastname1} ${employee?.lastname2}`
     let names = `${employee?.name1} ${employee?.name2}`
     let lastnames = `${employee?.lastname1} ${employee?.lastname2}`
     return (
         <>
-            {/* <H2>{fullName}</H2> */}
             <H2>{names}</H2>
             <H2>{lastnames}</H2>
             <H3>C.I: {employee.id_number}</H3>
@@ -46,12 +43,10 @@ export const DataPersonLarge = ({ employee }) => {
 }
 
 export const DataPersonMedium = ({ employee }) => {
-    // let fullName = `${employee?.name1} ${employee?.name2} ${employee?.lastname1} ${employee?.lastname2}`
     let names = `${employee?.name1} ${employee?.name2}`
     let lastnames = `${employee?.lastname1} ${employee?.lastname2}`
     return (
         <>
-            {/* <H3>{fullName}</H3> */}
             <H3>{names}</H3>
             <H3>{lastnames}</H3>
             <H4>C.I: {employee.id_number}</H4>

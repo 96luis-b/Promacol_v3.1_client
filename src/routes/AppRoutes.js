@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Routes, Route, Navigate, Link, Outlet } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import LoginPage from '../pages/LoginPage'
 import NotFoundPage from '../pages/NotFoundPage'
 import SwitchRolRoutes from './SwitchRolRoutes'
@@ -14,8 +14,8 @@ function AppRoutes() {
         path="/"
         element={<Navigate to="/login" replace />}
       />
-      <Route path='/login' element={<LoginPage/>} />
-      <Route path="/*" element={<SwitchRolRoutes/>} />
+      <Route path='/login' element={<LoginPage />} />
+      <Route path="/*" element={<SwitchRolRoutes />} />
       <Route path="/404" element={<NotFoundPage />} />
       <Route
         path="*"

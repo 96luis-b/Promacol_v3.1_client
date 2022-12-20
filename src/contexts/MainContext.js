@@ -1,8 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react'
 import { switchSearch } from './Search_Context'
-// import { EmployeeContext } from './EmployeeContext'
-
-import { signupEmployee, getJob, updateEmployee } from '../api/employee'
 
 const MainContext = createContext()
 const initialData = {

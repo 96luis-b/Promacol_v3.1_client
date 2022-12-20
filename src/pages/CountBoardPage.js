@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 import Container from '@mui/material/Container';
 
@@ -147,7 +147,6 @@ const CountBoardPage = () => {
 					container
 					justifyContent="center"
 				>
-					{/* <h1>Tablero de conteo</h1> */}
 					{window.innerWidth < 540
 						? <H5>Tablero de conteo</H5>
 						: <H1>Tablero de conteo</H1>

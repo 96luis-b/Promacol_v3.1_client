@@ -1,28 +1,19 @@
-import React, { useState, useContext, useEffect } from 'react'
-import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import React, { useState, useContext } from 'react'
 import * as FaIcons from 'react-icons/fa'
 import * as AiIcons from 'react-icons/ai'
 import { AdminSidebarData, AnalystSidebarData, CashierSidebaData } from './SidebarData'
 import SubMenu from './SubMenu'
 import { IconContext } from 'react-icons/lib'
-import MenuIconBox from '../styledComponents/MenuIconBox'
 import NavIcon from '../styledComponents/NavIcon'
 import SidebarNav from '../styledComponents/SidebarNav'
 import SidebarWrap from '../styledComponents/SidebarWrap'
-import SearchInput from '../styledComponents/SearchInput'
 import MainContext from '../contexts/MainContext'
 import { useLocation } from 'react-router'
 import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import MenuCountBoard from './MenuCountBoard'
 import Nav from '../styledComponents/Nav'
-import { GridContainerCenter } from '../styledComponents/GridContainerCenter'
 
 import LogoutButton from './LogoutButton'
-import FormControl from '@mui/material/FormControl';
 import useAuth from '../contexts/useAuth'
-import { useNavigate } from 'react-router-dom';
 
 
 const SidebarData = (user) => {
