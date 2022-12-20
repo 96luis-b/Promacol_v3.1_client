@@ -33,18 +33,18 @@ export default function AcccessibleTable({ production }) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {production.map((row,j) => (
+          {production.map((row, j) => (
             <TableRow key={j}>
               <TableCell>{row.start_date}</TableCell>
               <TableCell>
                 {row.detail.map((prod, i) => {
                   return <Box key={i}>
-                      {prod.prod_name + ": " + prod.quantity}
-                    </Box>
+                    {prod.prod_name + ": " + prod.quantity}
+                  </Box>
                 })}
               </TableCell>
-              <TableCell>{row.totalBs}</TableCell>
-              <TableCell>{row.total}</TableCell>
+              <TableCell>{parseFloat(row.totalBs).toFixed(2)}</TableCell>
+              <TableCell>{parseFloat(row.total).toFixed(2)}</TableCell>
             </TableRow>
           ))}
         </TableBody>

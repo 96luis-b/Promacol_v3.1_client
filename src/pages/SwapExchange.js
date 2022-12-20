@@ -41,6 +41,7 @@ const SwapExchange = () => {
     }
 
     const handleSwap = () => {
+        console.log("exchange_id: ", exchange.exchange_id)
         const change = listExchange.filter(e => e.exchange_id !== exchange.exchange_id)
         setExchange(...change)
     };

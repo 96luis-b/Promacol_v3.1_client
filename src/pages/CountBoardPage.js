@@ -41,13 +41,17 @@ const CountBoardPage = () => {
 	}
 
 	const handleChange = (v) => {
+		setInputText(v)
+	}
+
+	const handleChangeKeyBoard = (v) => {
 		let text = `${inputText}${v}`
 		setInputText(text)
 	}
 
 	const handleChangeRemove = () => {
-			let strnew = inputText.substring(0, inputText.length - 1);
-		   setInputText(strnew)
+		let strnew = inputText.substring(0, inputText.length - 1);
+		setInputText(strnew)
 	}
 
 	const handleMoreLess = async (prod, v, quantity) => {
@@ -125,6 +129,7 @@ const CountBoardPage = () => {
 			setTotal(response.body.total)
 			setSingleCount(getSingleCount(JSON.parse(JSON.stringify(response.body.employee.employee_id))) || [])
 			setGroupCount(getGroupCount(JSON.parse(JSON.stringify(response.body.production))) || [])
+			setInputText("")
 			handleUnactive()
 		} catch (e) {
 			alert(e)
@@ -172,29 +177,32 @@ const CountBoardPage = () => {
 				</Container>
 				: null
 			}
-			{window.innerWidth < 540 && <Footer style={{ background: "red" }}>
+			{window.innerWidth < 540 && <Footer>
 				<Grid
 					container
 					direction="row"
 					justifyContent="center"
 					alignItems="center">
-					<Grid xs={8}>
-						<Grid>
-							<ButtonGroup variant="contained" aria-label="outlined primary button group">
-								<Button onClick={() => handleChange(0)}>0</Button>
-								<Button onClick={() => handleChange(1)}>1</Button>
-								<Button onClick={() => handleChange(2)}>2</Button>
-								<Button onClick={() => handleChange(3)}>3</Button>
-								<Button onClick={() => handleChange(4)}>4</Button>
+					<Grid
+						item
+						xs={8}>
+						<Grid xs={12} sx={{background:"red"}}>
+							<ButtonGroup variant="contained">
+								<Button sx={{ width: "60px", height: "55px" }} onClick={() => handleChangeKeyBoard(0)}>0</Button>
+								<Button sx={{ width: "60px", height: "55px" }} onClick={() => handleChangeKeyBoard(1)}>1</Button>
+								<Button sx={{ width: "60px", height: "55px" }} onClick={() => handleChangeKeyBoard(2)}>2</Button>
+								<Button sx={{ width: "60px", height: "55px" }} onClick={() => handleChangeKeyBoard(3)}>3</Button>
+								<Button sx={{ width: "60px", height: "55px" }} onClick={() => handleChangeKeyBoard(4)}>4</Button>
 							</ButtonGroup>
 						</Grid>
-						<Grid>
-							<ButtonGroup variant="contained" aria-label="outlined primary button group">
-								<Button onClick={() => handleChange(5)}>5</Button>
-								<Button onClick={() => handleChange(6)}>6</Button>
-								<Button onClick={() => handleChange(7)}>7</Button>
-								<Button onClick={() => handleChange(8)}>8</Button>
-								<Button onClick={() => handleChange(9)}>9</Button>
+						<Grid xs={12}>
+							<ButtonGroup variant="contained">
+								{/* <ButtonGroup variant="contained"> */}
+								<Button sx={{ width: "60px", height: "55px" }} onClick={() => handleChangeKeyBoard(5)}>5</Button>
+								<Button sx={{ width: "60px", height: "55px" }} onClick={() => handleChangeKeyBoard(6)}>6</Button>
+								<Button sx={{ width: "60px", height: "55px" }} onClick={() => handleChangeKeyBoard(7)}>7</Button>
+								<Button sx={{ width: "60px", height: "55px" }} onClick={() => handleChangeKeyBoard(8)}>8</Button>
+								<Button sx={{ width: "60px", height: "55px" }} onClick={() => handleChangeKeyBoard(9)}>9</Button>
 							</ButtonGroup>
 						</Grid>
 					</Grid>
@@ -204,8 +212,8 @@ const CountBoardPage = () => {
 							aria-label="vertical contained button group"
 							variant="contained"
 						>
-							<Button key="send" onClick={() => handleSubmit()}>Send</Button>
-							<Button key="del" onClick={() =>handleChangeRemove()}>Del</Button>
+							<Button sx={{ width: "70px", height: "50px" }}  key="send" onClick={() => handleSubmit()}>Send</Button>
+							<Button sx={{ width: "70px", height: "50px" }} key="del" onClick={() => handleChangeRemove()}>Del</Button>
 						</ButtonGroup>
 					</Grid>
 
