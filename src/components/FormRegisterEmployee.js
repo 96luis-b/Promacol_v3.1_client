@@ -53,7 +53,6 @@ const FormRegisterEmployee = ({
                             <TextField onChange={(ev) => handleChangeData('name2', ev.target.value)} id="outlined-basic" value={data.name2} label="Segundo nombre" variant="outlined" autoComplete='off' sx={{ width: "90%" }} />
                             <TextField onChange={(ev) => handleChangeData('lastname2', ev.target.value)} id="outlined-basic" value={data.lastname2} label="Segundo apellido" variant="outlined" autoComplete='off' sx={{ width: "90%", my: 4 }} />
                             <TextField onChange={(ev) => handleChangeData('phone', ev.target.value)} id="outlined-basic" value={data.phone} label="Número de telefono" type="number" variant="outlined" autoComplete='off' sx={{ width: "90%" }} />
-                            <TextFieldSelect item={"job"} options={options} onChange={handleChangeData} option={option} width={"90%"} my={4} label={"Puesto de trabajo"} />
                         </GridContainerCenter>
                         <GridContainerCenter
                             item

@@ -1,21 +1,35 @@
 import React from 'react'
 
-import { H1, H2, H3, H4 } from '../styledComponents/Heading'
+import { H1, H2, H3, H4, H5 } from '../styledComponents/Heading'
 import { GridContainerCenter } from '../styledComponents/GridContainerCenter';
 
-export const DataPerson = ({employee}) => {
+export const DataPerson = ({ employee }) => {
+
+    const DataPersonSwitch = (screen) => {
+        console.log("screen: ", screen)
+        switch (true) {
+            case screen < 540:
+                return <DataPersonSmall employee={employee} />
+                break;
+            case screen >= 540 || screen < 720:
+                return <DataPersonMedium employee={employee} />
+                break;
+            case screen >= 720:
+                return <DataPersonLarge employee={employee} />
+                break;
+            default:
+                break;
+        }
+    }
 
     return (
         <>
-            {window.screen.width < 1400
-                ? <DataPersonMedium employee={employee}/>
-                : <DataPersonLarge employee={employee}/>
-            }
+            {DataPersonSwitch(window.innerWidth)}
         </>
     )
 }
 
-export const DataPersonLarge = ({employee}) => {
+export const DataPersonLarge = ({ employee }) => {
     let fullName = `${employee?.name1} ${employee?.name2} ${employee?.lastname1} ${employee?.lastname2}`
     return (
         <>
@@ -27,7 +41,7 @@ export const DataPersonLarge = ({employee}) => {
     )
 }
 
-export const DataPersonMedium = ({employee}) => {
+export const DataPersonMedium = ({ employee }) => {
     let fullName = `${employee?.name1} ${employee?.name2} ${employee?.lastname1} ${employee?.lastname2}`
     return (
         <>
@@ -35,6 +49,20 @@ export const DataPersonMedium = ({employee}) => {
             <H4>C.I: {employee.id_number}</H4>
             <H4>Area de Trabajo: {employee.job_name || employee?.job.label}</H4>
             <H3>Codigo: <span style={{ color: "#F90716" }}>{employee.emp_code}</span></H3>
+        </>
+    )
+}
+
+export const DataPersonSmall = ({ employee }) => {
+    let names = `${employee?.name1} ${employee?.name2}`
+    let lastnames = `${employee?.lastname1} ${employee?.lastname2}`
+    return (
+        <>
+            <H5>{names}</H5>
+            <H5>{lastnames}</H5>
+            <H5>C.I: {employee.id_number}</H5>
+            <H5>{employee.job_name || employee?.job.label}</H5>
+            <H4><span style={{ color: "#F90716" }}>{employee.emp_code}</span></H4>
         </>
     )
 }

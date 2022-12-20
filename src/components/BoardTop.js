@@ -14,22 +14,25 @@ export const BoardTop = ({ employee, total }) => {
 
     return (
         <>
-            <Grid 
+            <Grid
                 container
                 direction="row"
                 justifyContent="center"
                 alignItems="center"
-                sx={{ height: '40%', display: 'flex' }}
+                sx={{
+                    height: `${window.innerWidth < 540 ? '18%' : '40%'}`,
+                    display: 'flex',
+                }}
             >
-                <GridContainerCenter item xs={3}>
+                <GridContainerCenter item xs={3} lg={3}>
                     <PicturePerson />
                 </GridContainerCenter>
-                <GridContainerCenter item xs={6}
+                <GridContainerCenter item xs={6} lg={6}
                     container
                     direction="column">
                     <DataPerson employee={employee} />
                 </GridContainerCenter>
-                <GridContainerCenter item xs={3}>
+                <GridContainerCenter item xs={3} lg={3}>
                     <TotalCount total={total} />
                 </GridContainerCenter>
 

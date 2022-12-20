@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 
-import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 
 import { BoardTop } from '../components/BoardTop';
@@ -16,8 +15,11 @@ import {
 	deteleGroupCount
 } from '../helpers/singleCount'
 
-import LoaderDialog from '../components/Modals/LoaderDialog';
 import { Grid } from '@mui/material';
+import { H1, H5 } from '../styledComponents/Heading';
+import Footer from '../styledComponents/Footer';
+import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup';
 
 
 const CountBoardPage = () => {
@@ -39,7 +41,13 @@ const CountBoardPage = () => {
 	}
 
 	const handleChange = (v) => {
-		setInputText(v)
+		let text = `${inputText}${v}`
+		setInputText(text)
+	}
+
+	const handleChangeRemove = () => {
+			let strnew = inputText.substring(0, inputText.length - 1);
+		   setInputText(strnew)
 	}
 
 	const handleMoreLess = async (prod, v, quantity) => {
@@ -124,29 +132,33 @@ const CountBoardPage = () => {
 	}
 
 	return (
-		<>
+		<Grid sx={{ textAlign: "center", display: "flex", flexDirection: "column", minHeight: "100vh" }}>
 			<Grid container
 				direction="row"
 				alignItems="center"
 			>
-				<Grid item xs={2}></Grid>
-				<Grid item xs={7}
+				<Grid item xs={1} lg={2}></Grid>
+				<Grid item xs={6} lg={7}
 					container
 					justifyContent="center"
 				>
-					<h1>Tablero de conteo</h1>
+					{/* <h1>Tablero de conteo</h1> */}
+					{window.innerWidth < 540
+						? <H5>Tablero de conteo</H5>
+						: <H1>Tablero de conteo</H1>
+					}
 				</Grid>
-				<Grid item xs={2}>
+				<Grid item xs={4} lg={2}>
 					<SearchInput
 						onChange={handleChange}
 						onSubmit={handleSubmit}
 						value={inputText}
 					/>
 				</Grid>
-				<Grid item xs={1}></Grid>
+				<Grid item xs={1} lg={1}></Grid>
 			</Grid>
 			{employee != null && production != null
-				? <Container maxWidth="xl" sx={{ height: 'calc(100vh - 70px) ' }}>
+				? <Container maxWidth="xl" sx={{ height: 'calc(100vh - 70px)', flex: 1 }}>
 					<BoardTop employee={employee} total={total} />
 					<BoardBottom
 						production={production}
@@ -160,7 +172,46 @@ const CountBoardPage = () => {
 				</Container>
 				: null
 			}
-		</>
+			{window.innerWidth < 540 && <Footer style={{ background: "red" }}>
+				<Grid
+					container
+					direction="row"
+					justifyContent="center"
+					alignItems="center">
+					<Grid xs={8}>
+						<Grid>
+							<ButtonGroup variant="contained" aria-label="outlined primary button group">
+								<Button onClick={() => handleChange(0)}>0</Button>
+								<Button onClick={() => handleChange(1)}>1</Button>
+								<Button onClick={() => handleChange(2)}>2</Button>
+								<Button onClick={() => handleChange(3)}>3</Button>
+								<Button onClick={() => handleChange(4)}>4</Button>
+							</ButtonGroup>
+						</Grid>
+						<Grid>
+							<ButtonGroup variant="contained" aria-label="outlined primary button group">
+								<Button onClick={() => handleChange(5)}>5</Button>
+								<Button onClick={() => handleChange(6)}>6</Button>
+								<Button onClick={() => handleChange(7)}>7</Button>
+								<Button onClick={() => handleChange(8)}>8</Button>
+								<Button onClick={() => handleChange(9)}>9</Button>
+							</ButtonGroup>
+						</Grid>
+					</Grid>
+					<Grid xs={4}>
+						<ButtonGroup
+							orientation="vertical"
+							aria-label="vertical contained button group"
+							variant="contained"
+						>
+							<Button key="send" onClick={() => handleSubmit()}>Send</Button>
+							<Button key="del" onClick={() =>handleChangeRemove()}>Del</Button>
+						</ButtonGroup>
+					</Grid>
+
+				</Grid>
+			</Footer>}
+		</Grid>
 	)
 }
 

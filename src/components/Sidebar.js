@@ -63,8 +63,8 @@ const Sidebar = () => {
     return <>
         <Box sx={{ p: 1, m: 1 }}>
             <IconContext.Provider value={{ color: '#000' }}>
-                <Nav sx={{ marginLeft: "10px" }}>
-                    <NavIcon to='#' style={{ marginLeft: "15px" }}>
+                <Nav>
+                    <NavIcon to='#'>
                         <FaIcons.FaBars onClick={showSidebar} />
                     </NavIcon>
                 </Nav>
