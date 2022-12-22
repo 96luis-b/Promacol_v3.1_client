@@ -141,6 +141,7 @@ const CountBoardPage = () => {
 			<Grid container
 				direction="row"
 				alignItems="center"
+				mb={4}
 			>
 				<Grid item xs={1} lg={2}></Grid>
 				<Grid item xs={6} lg={7}

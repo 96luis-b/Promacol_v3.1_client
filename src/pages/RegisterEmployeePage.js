@@ -1,9 +1,11 @@
 import React, { useEffect, useState, useContext } from 'react'
 import FormRegisterEmployee from '../components/FormRegisterEmployee';
-import { Grid } from '@mui/material'
+import { Grid, TextField } from '@mui/material'
 import SearchInput from '../styledComponents/SearchInput'
 import { signupEmployee, getJob, updateEmployee, searchEmployee } from '../api/employee'
 import LoaderDialog from '../components/Modals/LoaderDialog';
+import InputAdornment from '@mui/material/InputAdornment';
+import SearchIcon from '@mui/icons-material/Search';
 
 const initialData = {
     emp_code: '',
@@ -23,10 +25,13 @@ export default function RegisterEmployeePage() {
     const [data, setData] = useState(initialData)
     const [loader, setLoader] = useState(false);
     const [value, setValue] = useState("")
+    const [inputText, setInputText] = useState("")
+
     useEffect(() => {
         async function fetchData() {
             try {
                 let response = await getJob();
+                console.log("res:", response.body)
                 setOptions(response.body)
             } catch (e) {
                 alert(e)
@@ -70,9 +75,9 @@ export default function RegisterEmployeePage() {
                 handleCloseLoader()
                 return console.error("error: ", response.message)
             }
+            handleCloseLoader()
             alert(response.message)
             handleChangeData("emp_code", response.body)
-            handleCloseLoader()
         } catch (e) {
             alert(e)
         }
@@ -123,13 +128,13 @@ export default function RegisterEmployeePage() {
                 alignItems="center"
             >
                 <Grid item xs={2}></Grid>
-                <Grid item xs={7}
+                <Grid item xs={6}
                     container
                     justifyContent="center"
                 >
                     <h1>Registro de empleados</h1>
                 </Grid>
-                <Grid item xs={2}>
+                <Grid item xs={3}>
                     <SearchInput
                         onChange={handleChange}
                         onSubmit={handleSubmit}

@@ -36,4 +36,8 @@ export const H5 = styled.h1`
   font-weight: 700;
   margin: 0 0;
 `
-
+export const H6 = styled.h1`
+  font-size:16px;
+  font-weight: 700;
+  margin: 0 0;
+`

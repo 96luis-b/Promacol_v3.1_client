@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { H1, H2, H3, H4, H5 } from '../styledComponents/Heading'
+import { H1, H2, H3, H4, H5, H6 } from '../styledComponents/Heading'
 
 export const DataPerson = ({ employee }) => {
 
@@ -64,7 +64,7 @@ export const DataPersonSmall = ({ employee }) => {
             <H5>{names}</H5>
             <H5>{lastnames}</H5>
             <H5>C.I: {employee.id_number}</H5>
-            <H5>{employee.job_name || employee?.job.label}</H5>
+            <H6>{employee.job_name || employee?.job.label}</H6>
             <H4><span style={{ color: "#F90716" }}>{employee.emp_code}</span></H4>
         </>
     )

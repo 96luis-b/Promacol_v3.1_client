@@ -4,6 +4,7 @@ import Container from '@mui/material/Container';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { GridContainerCenter } from '../styledComponents/GridContainerCenter';
+import { TextFieldSelect } from './TextFieldSelect';
 
 const FormRegisterEmployee = ({
         options, 
@@ -52,6 +53,7 @@ const FormRegisterEmployee = ({
                             <TextField onChange={(ev) => handleChangeData('name2', ev.target.value)} id="outlined-basic" value={data.name2} label="Segundo nombre" variant="outlined" autoComplete='off' sx={{ width: "90%" }} />
                             <TextField onChange={(ev) => handleChangeData('lastname2', ev.target.value)} id="outlined-basic" value={data.lastname2} label="Segundo apellido" variant="outlined" autoComplete='off' sx={{ width: "90%", my: 4 }} />
                             <TextField onChange={(ev) => handleChangeData('phone', ev.target.value)} id="outlined-basic" value={data.phone} label="Número de telefono" type="number" variant="outlined" autoComplete='off' sx={{ width: "90%" }} />
+                            <TextFieldSelect options={options} onChange={handleChangeData} item={"job"} option={option} width={"90%"} my={4} label={"Puesto de trabajo"} />
                         </GridContainerCenter>
                         <GridContainerCenter
                             item
