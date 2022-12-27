@@ -115,6 +115,7 @@ const CountBoardPage = () => {
 
 	const handleSubmit = async () => {
 		try {
+			if(inputText == '' || inputText == null) return alert("Campo vacio")
 			handleActive()
 			let response = await searchCountEmployee(inputText);
 			if (response.status != 200) {
@@ -186,7 +187,7 @@ const CountBoardPage = () => {
 					<Grid
 						item
 						xs={8}>
-						<Grid xs={12} sx={{background:"red"}}>
+						<Grid xs={12}>
 							<ButtonGroup variant="contained">
 								<Button sx={{ width: "60px", height: "55px" }} onClick={() => handleChangeKeyBoard(0)}>0</Button>
 								<Button sx={{ width: "60px", height: "55px" }} onClick={() => handleChangeKeyBoard(1)}>1</Button>
@@ -197,7 +198,6 @@ const CountBoardPage = () => {
 						</Grid>
 						<Grid xs={12}>
 							<ButtonGroup variant="contained">
-								{/* <ButtonGroup variant="contained"> */}
 								<Button sx={{ width: "60px", height: "55px" }} onClick={() => handleChangeKeyBoard(5)}>5</Button>
 								<Button sx={{ width: "60px", height: "55px" }} onClick={() => handleChangeKeyBoard(6)}>6</Button>
 								<Button sx={{ width: "60px", height: "55px" }} onClick={() => handleChangeKeyBoard(7)}>7</Button>

@@ -25,7 +25,7 @@ export default function PayrollEmployeeReport({ open, handleOpen, handleClose, d
                 aria-describedby="alert-dialog-description"
             >
                 <DialogTitle id="alert-dialog-title">
-                    {"Use Google's location service?"}
+                    Detalle de pago de nomina de destajo
                 </DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description">

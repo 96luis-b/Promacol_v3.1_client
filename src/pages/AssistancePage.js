@@ -110,6 +110,7 @@ const AssitancePage = () => {
 
 	const handleSubmit = async () => {
 		try {
+			if(inputText == '' || inputText == null) return alert("Campo vacio")
 			handleOpenLoader()
 			let response = await searchEmployee(inputText);
 			if (response.status != 200) {

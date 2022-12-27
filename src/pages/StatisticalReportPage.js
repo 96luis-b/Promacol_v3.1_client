@@ -201,8 +201,8 @@ export default function StatisticalReportPage() {
 					handleOpen={handleOpen}
 					handleClose={handleClose}
 					data={data}
-					datePayroll={date}
-					timePayroll={time}
+					date={date}
+					time={time}
 				/>
 				: null
 			}

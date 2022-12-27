@@ -98,6 +98,8 @@ export default function RegisterEmployeePage() {
 
     const handleSubmit = async () => {
         try {
+			if(value == '' || value == null) return alert("Campo vacio")
+
             handleOpenLoader()
             let response = await searchEmployee(value);
             if (response.status != 200) {
@@ -115,7 +117,8 @@ export default function RegisterEmployeePage() {
     }
 
     const checkInput = (data) => {
-        if (data.name1 != '' && data.name2 != '' && data.lastname1 != '' && data.lastname2 != '' && data.birthday != '' && data.id_number != '' && data.phone != '' && data.job.value != '') {
+        // if (data.name1 != '' && data.name2 != '' && data.lastname1 != '' && data.lastname2 != '' && data.birthday != '' && data.id_number != '' && data.phone != '' && data.job.value != '') {
+            if (data.name1 != '' && data.lastname1 != '' && data.birthday != '' && data.id_number != '' && data.phone != '' && data.job.value != '') {
             return false
         }
         return true

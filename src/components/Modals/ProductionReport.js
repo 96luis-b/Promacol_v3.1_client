@@ -44,10 +44,10 @@ export default function AlertDialog({ open, handleOpen, handleClose, data, turnP
             <Table sx={{ width: "1000px" }} size="large" aria-label="a dense table">
               <TableHead>
                 <TableRow>
-                  <TableCell align="right">Nro</TableCell>
-                  <TableCell align="right">Grupo</TableCell>
-                  <TableCell align="right">Codigo</TableCell>
-                  <TableCell align="center">Nombre completo</TableCell>
+                  <TableCell align="left">Nro</TableCell>
+                  <TableCell align="left">Grupo</TableCell>
+                  <TableCell align="left">Codigo</TableCell>
+                  <TableCell align="left">Nombre completo</TableCell>
                   <TableCell align="center" colSpan={colSpan}>Producto</TableCell>
                   <TableCell align="center">Total</TableCell>
                 </TableRow>
@@ -60,17 +60,17 @@ export default function AlertDialog({ open, handleOpen, handleClose, data, turnP
                       key={z}
                       sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                     >
-                      <TableCell align="right">{z + 1}</TableCell>
-                      <TableCell align="right">{row.job_name}</TableCell>
-                      <TableCell align="right">{elem.emp_code}</TableCell>
-                      <TableCell align="right">{`${elem.name1} ${elem.name2} ${elem.lastname1} ${elem.lastname2}`}</TableCell>
+                      <TableCell align="left">{z + 1}</TableCell>
+                      <TableCell align="left">{row.job_name}</TableCell>
+                      <TableCell align="left">{elem.emp_code}</TableCell>
+                      <TableCell align="left">{`${elem.name1} ${elem.name2} ${elem.lastname1} ${elem.lastname2}`}</TableCell>
                       {elem.production
                         ? elem.production.map((p, j, index) => {
                           if(totalAmountProduct[j] == undefined){totalAmountProduct[j] = 0}
                           totalAmountProduct[j] +=  parseInt(p.quantity)
                           if (index) totalUnit = parseInt(totalUnit) + parseInt(p.quantity)
                           if (j + 1 == index?.length || false) { totalUnitGroup = parseInt(totalUnitGroup) + parseInt(totalUnit) }
-                          return <TableCell align="right" key={j}>{`${p?.prod_name}: ${p?.quantity}`}</TableCell>
+                          return <TableCell align="center" key={j}>{`${p?.prod_name}: ${p?.quantity}`}</TableCell>
                         })
                         : <TableCell align="center">---</TableCell>
                       }
@@ -85,10 +85,10 @@ export default function AlertDialog({ open, handleOpen, handleClose, data, turnP
                 <TableRow>
                   <TableCell sx={{ background: "#00dfff" }} align="left" colSpan={5}>Total</TableCell>
                   {totalAmountProduct.map(amonutProd => {
-                    return <TableCell sx={{ background: "#00dfff", width: "85px" }} align="center">{amonutProd}</TableCell>
+                    return <TableCell sx={{ background: "#00dfff", width: "85px" }} align="left">{amonutProd}</TableCell>
                   })
                   }
-                  <TableCell sx={{ background: "#00dfff", width: "0" }} align="right">{totalUnitGroup}</TableCell>
+                  <TableCell sx={{ background: "#00dfff", width: "0" }} align="left">{totalUnitGroup}</TableCell>
                 </TableRow>
               </TableHead>
             </Table>
