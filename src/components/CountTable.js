@@ -14,7 +14,7 @@ import { CountCard } from '../styledComponents/CountCard';
 import { Grid } from '@mui/material';
 
 
-export const CountTable = ({production, handleMoreLess, singleCount, groupCount, handleCleanSingleCount, handleCleanGroupCount, active}) => {
+export const CountTable = ({ production, handleMoreLess, singleCount, groupCount, handleCleanSingleCount, handleCleanGroupCount, active }) => {
     return (
         <>
             <GridContainerCenter
@@ -25,35 +25,35 @@ export const CountTable = ({production, handleMoreLess, singleCount, groupCount,
                 {production.map((item, index) => {
                     return (
                         <CountCard key={index} style={{
-                            width: `${window.innerWidth < 540 ? '80%' : '230px'}`, 
+                            width: `${window.innerWidth < 540 ? '80%' : '230px'}`,
                             height: `${window.innerWidth < 540 && '160px'}`,
-                            }}>
+                        }}>
                             <CardContent>
                                 <GridContainerCenter container>
-                                    {window.innerWidth < 540 
+                                    {window.innerWidth < 540
                                         ? <H4>{item.prod_name}</H4>
                                         : <H2 textShadow>{item.prod_name}</H2>
                                     }
-                                    <Grid 
+                                    <Grid
                                         container
                                         direction={`${window.innerWidth < 540 ? "row" : "column"}`}
                                         justifyContent="center"
                                         alignItems="center"
                                     >
-                                        <CountBox sx={{background: "#FFF176" }} onClick={()=> handleCleanSingleCount()}>
-                                            {window.innerWidth < 540 
+                                        <CountBox sx={{ background: "#FFF176" }} onClick={() => handleCleanSingleCount()}>
+                                            {window.innerWidth < 540
                                                 ? <H4>{singleCount[index]?.quantity || 0}</H4>
                                                 : <H2>{singleCount[index]?.quantity || 0}</H2>
                                             }
                                         </CountBox>
-                                        <CountBox  sx={{background: "#4FC3F7" }}>
-                                            {window.innerWidth < 540 
-                                                ? <H4>{item?.quantity|| 0}</H4>
+                                        <CountBox sx={{ background: "#4FC3F7" }}>
+                                            {window.innerWidth < 540
+                                                ? <H4>{item?.quantity || 0}</H4>
                                                 : <H2>{item?.quantity || 0}</H2>
                                             }
                                         </CountBox>
-                                        <CountBox sx={{background: "#90A4AE"}}  onClick={()=> handleCleanGroupCount()}>
-                                            {window.innerWidth < 540 
+                                        <CountBox sx={{ background: "#90A4AE" }} onClick={() => handleCleanGroupCount()}>
+                                            {window.innerWidth < 540
                                                 ? <H4>{groupCount[index]?.quantity || 0}</H4>
                                                 : <H2>{groupCount[index]?.quantity || 0}</H2>
                                             }
@@ -64,17 +64,19 @@ export const CountTable = ({production, handleMoreLess, singleCount, groupCount,
                             <CardActions>
                                 <GridContainerCenter container>
                                     <GridContainerCenter item>
-                                        <Button 
+                                        <Button
                                             sx={{ fontSize: "25px" }}
-                                            onClick={()=> {if(active != true) handleMoreLess(item, -1, item?.quantity || 0)}}>
+                                            // onClick={()=> {if(active != true) handleMoreLess(item, -1, item?.quantity || 0)}}>
+                                            onClick={() => { handleMoreLess(item, -1, item?.quantity || 0) }}>
                                             <IoMdRemove />
                                         </Button>
                                     </GridContainerCenter>
-                                    
+
                                     <GridContainerCenter item justify="flex-end">
-                                        <Button 
-                                            sx={{ fontSize: "25px" }} 
-                                            onClick={()=>{if(active != true) handleMoreLess(item, 1, item?.quantity || 0)}}>
+                                        <Button
+                                            sx={{ fontSize: "25px" }}
+                                            // onClick={()=>{if(active != true) handleMoreLess(item, 1, item?.quantity || 0)}}>
+                                            onClick={() => { handleMoreLess(item, 1, item?.quantity || 0) }}>
                                             <FiPlus />
                                         </Button>
                                     </GridContainerCenter>

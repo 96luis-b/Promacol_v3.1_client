@@ -56,7 +56,8 @@ const CountBoardPage = () => {
 
 	const handleMoreLess = async (prod, v, quantity) => {
 		let status = true
-		let p = JSON.parse(JSON.stringify(production))
+		// let p = JSON.parse(JSON.stringify(production))
+		let p = production
 		let product = {}
 		let response
 		p.forEach(element => {
@@ -74,7 +75,7 @@ const CountBoardPage = () => {
 
 		if (status) {
 			try {
-				handleActive()
+				// handleActive()
 				response = await moreLess({
 					product: product,
 					employee: {
@@ -83,13 +84,13 @@ const CountBoardPage = () => {
 					}
 				});
 				if (response.status != 200) return console.error("error: ", response.message)
-				setProduction(p)
-				setTotal(total + v)
+				setProduction(setP => setP = p)
+				setTotal(setT => setT + v)
 				let s = save({ employee, production, prod_id: prod.prod_id }, v)
 				let group = saveGroupCount(production, v, prod.prod_id)
-				setSingleCount(s)
-				setGroupCount(group)
-				handleUnactive()
+				setSingleCount(setS => setS = s)
+				setGroupCount(setG => setG = group)
+				// handleUnactive()
 			} catch (e) {
 				alert(e)
 			}
@@ -115,7 +116,7 @@ const CountBoardPage = () => {
 
 	const handleSubmit = async () => {
 		try {
-			if(inputText == '' || inputText == null) return alert("Campo vacio")
+			if (inputText == '' || inputText == null) return alert("Campo vacio")
 			handleActive()
 			let response = await searchCountEmployee(inputText);
 			if (response.status != 200) {
@@ -212,7 +213,7 @@ const CountBoardPage = () => {
 							aria-label="vertical contained button group"
 							variant="contained"
 						>
-							<Button sx={{ width: "70px", height: "50px" }}  key="send" onClick={() => handleSubmit()}>Send</Button>
+							<Button sx={{ width: "70px", height: "50px" }} key="send" onClick={() => handleSubmit()}>Send</Button>
 							<Button sx={{ width: "70px", height: "50px" }} key="del" onClick={() => handleChangeRemove()}>Del</Button>
 						</ButtonGroup>
 					</Grid>
