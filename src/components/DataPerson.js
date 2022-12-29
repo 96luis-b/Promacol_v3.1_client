@@ -5,7 +5,6 @@ import { H1, H2, H3, H4, H5, H6 } from '../styledComponents/Heading'
 export const DataPerson = ({ employee }) => {
 
     const DataPersonSwitch = (screen) => {
-        console.log("screen: ", screen)
         switch (true) {
             case screen < 540:
                 return <DataPersonSmall employee={employee} />
