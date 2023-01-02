@@ -9,11 +9,11 @@ import Button from '@mui/material/Button';
 
 import MenuItem from '@mui/material/MenuItem';
 
-import AlertDialog from '../components/Modals/ProductionReport'
 import { getEmpProduction } from '../api/employee';
 import { getPayrollEmployeeReport } from '../api/payroll';
 import PayrollEmployeeReport from '../components/Modals/PayrollEmployeeReport';
 import { dateTime } from '../helpers/DataTime';
+import ProductionReport from '../components/Modals/ProductionReport';
 
 const options = [
 	{
@@ -183,7 +183,7 @@ export default function StatisticalReportPage() {
 				</ReportCard>
 			</GridContainerCenter>
 			{open == true && option == 1
-				? <AlertDialog
+				? <ProductionReport
 					open={open}
 					handleOpen={handleOpen}
 					handleClose={handleClose}

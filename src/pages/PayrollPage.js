@@ -10,6 +10,7 @@ import TextField from '@mui/material/TextField';
 import SearchInput from '../styledComponents/SearchInput'
 
 import { getPayrollEmployee, payEmployee } from '../api/payroll'
+import DateRange from '../components/DateRange';
 
 const PayrollPage = () => {
 
@@ -41,7 +42,7 @@ const PayrollPage = () => {
   }
 
   const handleChangeSwap = (item, value) => {
-    if(item == "bolivar"){
+    if (item == "bolivar") {
       let newPayDollar = (totalValues.totalDollar - (value * totalValues.rate)).toFixed(2)
       setTotalValues({ ...totalValues, payDollar: newPayDollar, payBs: value })
       return
@@ -105,28 +106,10 @@ const PayrollPage = () => {
               value={inputText}
             />
           </Grid>
-          <Grid item xs={6} sx={{ textAlign: 'end' }}>
-            <TextField
-              id="start"
-              label="Desde"
-              type="date"
-              onChange={(e) => handleChangeDate("start", e.target.value)}
-              defaultValue={today}
-              InputLabelProps={{
-                shrink: true,
-              }} />
-          </Grid>
-          <Grid item xs={6} sx={{ textAlign: 'start' }}>
-            <TextField
-              id="end"
-              label="Hasta"
-              type="date"
-              onChange={(e) => handleChangeDate("end", e.target.value)}
-              defaultValue={today}
-              InputLabelProps={{
-                shrink: true,
-              }} />
-          </Grid>
+          <DateRange
+            handleChangeDate={handleChangeDate}
+            today={today}
+          />
         </Grid>
         {employee != null &&
           <Grid

@@ -20,6 +20,7 @@ import { H1, H5 } from '../styledComponents/Heading';
 import Footer from '../styledComponents/Footer';
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
+import MobileKeyBoard from '../components/MobileKeyBoard';
 
 
 const CountBoardPage = () => {
@@ -45,6 +46,7 @@ const CountBoardPage = () => {
 	}
 
 	const handleChangeKeyBoard = (v) => {
+		console.log("aqui estoy")
 		let text = `${inputText}${v}`
 		setInputText(text)
 	}
@@ -126,6 +128,7 @@ const CountBoardPage = () => {
 				alert(response.message)
 				return
 			}
+			console.log("response: ", response)
 			setEmployee(response.body.employee)
 			setProduction(response.body.production)
 			setTotal(response.body.total)
@@ -179,51 +182,16 @@ const CountBoardPage = () => {
 				</Container>
 				: null
 			}
-			{window.innerWidth < 540 && <Footer>
-				<Grid
-					container
-					direction="row"
-					justifyContent="center"
-					alignItems="center">
-					<Grid
-						item
-						xs={8}>
-						<Grid xs={12}>
-							<ButtonGroup variant="contained">
-								<Button sx={{ width: "60px", height: "55px" }} onClick={() => handleChangeKeyBoard(0)}>0</Button>
-								<Button sx={{ width: "60px", height: "55px" }} onClick={() => handleChangeKeyBoard(1)}>1</Button>
-								<Button sx={{ width: "60px", height: "55px" }} onClick={() => handleChangeKeyBoard(2)}>2</Button>
-								<Button sx={{ width: "60px", height: "55px" }} onClick={() => handleChangeKeyBoard(3)}>3</Button>
-								<Button sx={{ width: "60px", height: "55px" }} onClick={() => handleChangeKeyBoard(4)}>4</Button>
-							</ButtonGroup>
-						</Grid>
-						<Grid xs={12}>
-							<ButtonGroup variant="contained">
-								<Button sx={{ width: "60px", height: "55px" }} onClick={() => handleChangeKeyBoard(5)}>5</Button>
-								<Button sx={{ width: "60px", height: "55px" }} onClick={() => handleChangeKeyBoard(6)}>6</Button>
-								<Button sx={{ width: "60px", height: "55px" }} onClick={() => handleChangeKeyBoard(7)}>7</Button>
-								<Button sx={{ width: "60px", height: "55px" }} onClick={() => handleChangeKeyBoard(8)}>8</Button>
-								<Button sx={{ width: "60px", height: "55px" }} onClick={() => handleChangeKeyBoard(9)}>9</Button>
-							</ButtonGroup>
-						</Grid>
-					</Grid>
-					<Grid xs={4}>
-						<ButtonGroup
-							orientation="vertical"
-							aria-label="vertical contained button group"
-							variant="contained"
-						>
-							<Button sx={{ width: "70px", height: "50px" }} key="send" onClick={() => handleSubmit()}>Send</Button>
-							<Button sx={{ width: "70px", height: "50px" }} key="del" onClick={() => handleChangeRemove()}>Del</Button>
-						</ButtonGroup>
-					</Grid>
-
-				</Grid>
-			</Footer>}
+			{window.innerWidth < 540 && <>
+				<MobileKeyBoard
+					handleChangeKeyBoard={handleChangeKeyBoard}
+					handleSubmit={handleSubmit}
+					handleChangeRemove={handleChangeRemove}
+				/>
+			</>
+			}
 		</Grid>
 	)
 }
 
 export default CountBoardPage
-
-

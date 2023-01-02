@@ -11,6 +11,8 @@ import useAuth from "../contexts/useAuth";
 import { useNavigate } from 'react-router-dom';
 import { GridContainerCenter } from '../styledComponents/GridContainerCenter';
 import logo from '../assets/logo_2.png'
+import CircularIndeterminate from '../components/Modals/Progress';
+import LoaderDialog from '../components/Modals/LoaderDialog';
 
 export default function Login() {
   const navigate = useNavigate()
@@ -30,16 +32,16 @@ export default function Login() {
     }
   };
 
-  return(
-    <Grid sx={{height:"100vh"}}
+  return (<>
+    <Grid sx={{ height: "100vh" }}
       container
       direction="row"
       justifyContent="center"
       alignItems="center"
-  >
+    >
       <Grid>
         <Container component="main" maxWidth="xs">
-       
+
           <Box
             sx={{
               display: 'flex',
@@ -47,14 +49,14 @@ export default function Login() {
               alignItems: 'center',
             }}
           >
-            <div style={{width:"80%"}}>
-          
-            <img
-              src={logo}
-              style={{  width:"100%", height:"auto"}}
-              loading="lazy"
-            />
-          </div>
+            <div style={{ width: "80%" }}>
+
+              <img
+                src={logo}
+                style={{ width: "100%", height: "auto" }}
+                loading="lazy"
+              />
+            </div>
             <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
               <TextField
                 margin="normal"
@@ -96,6 +98,7 @@ export default function Login() {
         </Container>
       </Grid>
     </Grid>
+  </>
   )
 
 }

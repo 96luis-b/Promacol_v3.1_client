@@ -40,24 +40,24 @@ export const AnalystSidebarData = [
     {
         title: 'Obreros',
         // path: '/scop',
-        icon: <AiIcons.AiFillHome />,
+        icon: <MdIcons.MdGroups />,
         iconClosed: <RiIcons.RiArrowDownSFill />,
         iconOpen: <RiIcons.RiArrowUpSFill />,
         subNav: [
             {
                 title: 'Asistencia',
                 path: '/scop/obrero/asistencia',
-                icon: <IoIcons.IoIosPaper />,
+                icon: <MdIcons.MdHowToReg />,
             },
-            {
-                title: 'Registrar',
-                path: '/scop/obrero/registrar',
-                icon: <IoIcons.IoIosPaper />,
-            },
+            // {
+            //     title: 'Registrar',
+            //     path: '/scop/obrero/registrar',
+            //     icon: <MdIcons.MdAssignment />,
+            // },
             {
                 title: 'Tablero de conteo',
                 path: '/scop/obrero/tablero_conteo',
-                icon: <FaIcons.FaCartPlus />
+                icon: <BsIcons.BsFileBarGraphFill />
             },
         ]
     },
@@ -72,40 +72,40 @@ export const CashierSidebaData = [
     {
         title: 'Obreros',
         // path: '/scop',
-        icon: <AiIcons.AiFillHome />,
+        icon: <MdIcons.MdGroups />,
         iconClosed: <RiIcons.RiArrowDownSFill />,
         iconOpen: <RiIcons.RiArrowUpSFill />,
         subNav: [
             {
                 title: 'Asistencia',
                 path: '/scop/obrero/asistencia',
-                icon: <IoIcons.IoIosPaper />,
+                icon: <MdIcons.MdHowToReg />,
             },
         ]
     }, {
         title: 'Reportes',
         // path: '/scop',
-        icon: <AiIcons.AiFillHome />,
+        icon: <TbIcons.TbReport />,
         iconClosed: <RiIcons.RiArrowDownSFill />,
         iconOpen: <RiIcons.RiArrowUpSFill />,
         subNav: [
             {
                 title: 'Estadisticos',
                 path: '/scop/reporte/estadistico',
-                icon: <IoIcons.IoIosPaper />,
+                icon: <TbIcons.TbReportSearch />,
             },
         ]
     }, {
         title: 'Pagos',
         // path: '/scop',
-        icon: <AiIcons.AiFillHome />,
+        icon: <TbIcons.TbCash />,
         iconClosed: <RiIcons.RiArrowDownSFill />,
         iconOpen: <RiIcons.RiArrowUpSFill />,
         subNav: [
             {
                 title: 'Pago de nomina',
                 path: '/scop/pago_nomina',
-                icon: <FaIcons.FaCartPlus />
+                icon: <HiIcons.HiUser />
             },
         ]
     },

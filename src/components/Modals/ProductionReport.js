@@ -18,8 +18,14 @@ import Grid from '@mui/material/Grid';
 
 
 
-export default function AlertDialog({ open, handleOpen, handleClose, data, turnPage, group, date, time }) {
-  let totalUnitGroup = 0, colSpan = group[0].category[0].production?.length || 1;
+export default function ProductionReport({ open, handleOpen, handleClose, data, turnPage, group, date, time }) {
+  let totalUnitGroup = 0, colSpan = 1;
+  group[0].category.forEach(element => {
+    // element.production?.length || 1
+    if (element.production?.length > colSpan) {
+      colSpan = element.production?.length
+    }
+  });
   let totalAmountProduct = []
   return (
     <div>
@@ -54,7 +60,7 @@ export default function AlertDialog({ open, handleOpen, handleClose, data, turnP
               </TableHead>
               {group.map((row, i) => (
                 <TableBody key={i}>
-                  {row.category.map((elem, z, ob) => {
+                  {row.category.map((elem, z, listCategory) => {
                     let totalUnit = 0
                     return <TableRow
                       key={z}
@@ -65,12 +71,13 @@ export default function AlertDialog({ open, handleOpen, handleClose, data, turnP
                       <TableCell align="left">{elem.emp_code}</TableCell>
                       <TableCell align="left">{`${elem.name1} ${elem.name2} ${elem.lastname1} ${elem.lastname2}`}</TableCell>
                       {elem.production
-                        ? elem.production.map((p, j, index) => {
-                          if(totalAmountProduct[j] == undefined){totalAmountProduct[j] = 0}
-                          totalAmountProduct[j] +=  parseInt(p.quantity)
-                          if (index) totalUnit = parseInt(totalUnit) + parseInt(p.quantity)
-                          if (j + 1 == index?.length || false) { totalUnitGroup = parseInt(totalUnitGroup) + parseInt(totalUnit) }
-                          return <TableCell align="center" key={j}>{`${p?.prod_name}: ${p?.quantity}`}</TableCell>
+                        ? elem.production.map((p, j, listProdProduction) => {
+                          if (totalAmountProduct[j] == undefined) { totalAmountProduct[j] = 0 }
+                          totalAmountProduct[j] += parseInt(p?.quantity || 0)
+                          if (listProdProduction) totalUnit = parseInt(totalUnit) + parseInt(p?.quantity || 0)
+                          if (j + 1 == listProdProduction?.length || false) { totalUnitGroup = parseInt(totalUnitGroup) + parseInt(totalUnit) }
+                          // return <></>
+                          return <TableCell align="center" key={j}>{`${p?.prod_name}: ${p?.quantity || 0}`}</TableCell>
                         })
                         : <TableCell align="center">---</TableCell>
                       }
@@ -84,8 +91,8 @@ export default function AlertDialog({ open, handleOpen, handleClose, data, turnP
               <TableHead>
                 <TableRow>
                   <TableCell sx={{ background: "#00dfff" }} align="left" colSpan={5}>Total</TableCell>
-                  {totalAmountProduct.map(amonutProd => {
-                    return <TableCell sx={{ background: "#00dfff", width: "85px" }} align="left">{amonutProd}</TableCell>
+                  {totalAmountProduct.map((amonutProd, y) => {
+                    return <TableCell key={y} sx={{ background: "#00dfff", width: "85px" }} align="left">{amonutProd}</TableCell>
                   })
                   }
                   <TableCell sx={{ background: "#00dfff", width: "0" }} align="left">{totalUnitGroup}</TableCell>
