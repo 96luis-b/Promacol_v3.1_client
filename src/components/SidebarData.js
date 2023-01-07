@@ -8,6 +8,9 @@ import * as BsIcons from 'react-icons/bs'
 import * as TbIcons from 'react-icons/tb'
 import * as CiIcons from 'react-icons/ci'
 import * as HiIcons from 'react-icons/hi'
+import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
+
+
 
 import useAuth from '../contexts/useAuth'
 
@@ -82,7 +85,8 @@ export const CashierSidebaData = [
                 icon: <MdIcons.MdHowToReg />,
             },
         ]
-    }, {
+    },
+    {
         title: 'Reportes',
         // path: '/scop',
         icon: <TbIcons.TbReport />,
@@ -145,6 +149,11 @@ export const AdminSidebarData = [
                 icon: <BsIcons.BsFileBarGraphFill />
             },
         ]
+    },
+    {
+        title: 'Puesto de trabajo',
+        path: '/scop/puesto_trabajo',
+        icon: <MdIcons.MdWorkOutline />,
     },
     {
         title: 'Reportes',
