@@ -21,6 +21,7 @@ export default function Login() {
   const handleSubmit = async (event) => {
     try {
       event.preventDefault();
+      console.log("login")
       const data = new FormData(event.currentTarget);
       let response = await auth.login({
         username: data.get('username'),
