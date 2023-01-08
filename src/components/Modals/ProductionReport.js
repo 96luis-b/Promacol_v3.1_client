@@ -15,10 +15,12 @@ import Paper from '@mui/material/Paper';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
+import * as AiIcons from 'react-icons/ai'
+import IconButton from '@mui/material/IconButton';
 
 
 
-export default function ProductionReport({ open, handleOpen, handleClose, data, turnPage, group, date, time }) {
+export default function ProductionReport({ open, handleOpen, handleClose, data, turnPage, group, date, time, generateReportProduction }) {
   let totalUnitGroup = 0, colSpan = 1;
   group[0].category.forEach(element => {
     // element.production?.length || 1
@@ -40,12 +42,22 @@ export default function ProductionReport({ open, handleOpen, handleClose, data, 
           Producción general de destajo
         </DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            {`Fecha:${date}`}
-          </DialogContentText>
-          <DialogContentText>
-            {`Hora:${time}`}
-          </DialogContentText>
+
+          <Grid container>
+            <Grid item xs={10}>
+              <DialogContentText id="alert-dialog-description">
+                {`Fecha:${date}`}
+              </DialogContentText>
+              <DialogContentText>
+                {`Hora:${time}`}
+              </DialogContentText>
+            </Grid>
+            <Grid xs={2}>
+              <IconButton color="primary" aria-label="upload picture" component="label" onClick={generateReportProduction}>
+                <AiIcons.AiOutlineFileExcel />
+              </IconButton>
+            </Grid>
+          </Grid>
           <TableContainer component={Paper}>
             <Table sx={{ width: "1000px" }} size="large" aria-label="a dense table">
               <TableHead>

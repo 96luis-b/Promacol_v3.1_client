@@ -13,8 +13,10 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
 import Grid from '@mui/material/Grid';
+import * as AiIcons from 'react-icons/ai'
+import IconButton from '@mui/material/IconButton';
 
-export default function PayrollEmployeeReport({ open, handleOpen, handleClose, data, datePayroll, timePayroll, time, date }) {
+export default function PayrollEmployeeReport({ open, handleOpen, handleClose, data, datePayroll, timePayroll, time, date, generateReportPayroll }) {
     console.log("data: ", data)
     return (
         <div>
@@ -29,12 +31,21 @@ export default function PayrollEmployeeReport({ open, handleOpen, handleClose, d
                     Detalle de pago de nomina de destajo
                 </DialogTitle>
                 <DialogContent>
-                    <DialogContentText id="alert-dialog-description">
-                        {`Fecha:${date}`}
-                    </DialogContentText>
-                    <DialogContentText>
-                        {`Hora:${time}`}
-                    </DialogContentText>
+                    <Grid container>
+                        <Grid item xs={10}>
+                            <DialogContentText id="alert-dialog-description">
+                                {`Fecha:${date}`}
+                            </DialogContentText>
+                            <DialogContentText>
+                                {`Hora:${time}`}
+                            </DialogContentText>
+                        </Grid>
+                        <Grid xs={2}>
+                            <IconButton color="primary" aria-label="upload picture" component="label" onClick={generateReportPayroll}>
+                                <AiIcons.AiOutlineFileExcel />
+                            </IconButton>
+                        </Grid>
+                    </Grid>
                     <TableContainer component={Paper}>
                         <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
                             <TableHead>

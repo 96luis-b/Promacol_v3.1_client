@@ -14,6 +14,7 @@ import { getPayrollEmployeeReport } from '../api/payroll';
 import PayrollEmployeeReport from '../components/Modals/PayrollEmployeeReport';
 import { dateTime } from '../helpers/DataTime';
 import ProductionReport from '../components/Modals/ProductionReport';
+import { createPayrollReport, createWorkmanProductionReport } from '../api/report';
 
 const options = [
 	{
@@ -71,8 +72,6 @@ export default function StatisticalReportPage() {
 		}
 	}
 
-
-
 	const handleSubmit = async () => {
 		try {
 			let response;
@@ -105,6 +104,27 @@ export default function StatisticalReportPage() {
 			alert(e)
 		}
 	}
+
+	const generateReportProduction = async () => {
+		console.log("data: ", data)
+		let response = await createWorkmanProductionReport({data: data});
+		if (response.status != 200) {
+			console.error("error: ", response.message)
+			alert(response.message)
+			return
+		}
+	}
+
+	const generateReportPayroll = async () => {
+		console.log("data: ", data)
+		let response = await createPayrollReport({data: data});
+		if (response.status != 200) {
+			console.error("error: ", response.message)
+			alert(response.message)
+			return
+		}
+	}
+
 	return (
 		<>
 
@@ -192,6 +212,7 @@ export default function StatisticalReportPage() {
 					group={group}
 					date={date}
 					time={time}
+					generateReportProduction={generateReportProduction}
 				/>
 				: null
 			}
@@ -203,6 +224,7 @@ export default function StatisticalReportPage() {
 					data={data}
 					date={date}
 					time={time}
+					generateReportPayroll={generateReportPayroll}
 				/>
 				: null
 			}
