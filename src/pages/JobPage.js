@@ -145,15 +145,15 @@ export default function JobPage() {
                     spacing={{ xs: 1, md: 1 }}
                     columns={{ xs: 4, sm: 8, md: 12 }}>
                     {jobs.map((job, i) => (
-                        <Grid item
+                        <Grid
+                            item
                             container
                             direction="row"
                             justifyContent="center"
                             alignItems="center"
                             xs={2} sm={3} md={3} key={i}>
-                            {/* <Item>xs=2</Item> */}
                             <Card sx={{ width: 200 }}>
-                                <CardContent>
+                                 <CardContent>
                                     <H4>{job.job_name}</H4>
                                     <List
                                         sx={{ width: '100%', maxWidth: 260, bgcolor: 'background.paper' }}
@@ -162,7 +162,7 @@ export default function JobPage() {
                                         aria-labelledby="nested-list-subheader"
                                     >
                                         {job.products.map((prod, j) => {
-                                            return <ListItemButton>
+                                            return <ListItemButton key={j}>
                                                 <ListItemIcon>
                                                     <GoIcons.GoPrimitiveDot />
                                                 </ListItemIcon>
@@ -173,12 +173,7 @@ export default function JobPage() {
                                         }
                                     </List>
                                 </CardContent>
-                                <CardActions
-                                    container
-                                    justifyContent="end"
-                                    alignItems="end"
-                                    sx={{ textAlign: "end" }}
-                                >
+                                <CardActions>
                                     <Button
                                         sx={{ borderRadius: "50%", width: "10%" }}
                                         variant="contained"

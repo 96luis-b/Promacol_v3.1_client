@@ -17,6 +17,7 @@ import WelcomePage from '../pages/WelcomePage';
 import SwapExchange from '../pages/SwapExchange'
 import ProductUnitPage from '../pages/ProductUnitPage';
 import JobPage from '../pages/JobPage';
+import ExtracProductPage from '../pages/ExtracProductPage';
 
 
 export default function AdminRoutes() {
@@ -39,6 +40,7 @@ export default function AdminRoutes() {
             <Route exact path='/scop/inventario' element={<InventoryPage />} />
             <Route exact path='/scop/tasa_cambio' element={<SwapExchange />} />
             <Route exact path='/scop/unidad_produccion' element={<ProductUnitPage />} />
+            {/* <Route exact path='/scop/extrac_producto' element={<ExtracProductPage />} /> */}
             <Route exact path='/scop/puesto_trabajo' element={<JobPage />} />
         </Routes>
     </>

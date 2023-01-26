@@ -21,10 +21,10 @@ export const FormDataInsertion = () => {
                     <Grid container direction="row" sx={{ height: "160px", width: "100%" }}>
                         <Grid item xs={8} >
                             <Grid container item justifyContent="start" alignItems="center" xs={12} sx={{ mb: 2 }}>
-                                <TextFieldSelect label={"Zona de extracción"} />
+                                {/* <TextFieldSelect label={"Zona de extracción"} /> */}
                             </Grid>
                             <Grid container item justifyContent="start" alignItems="center" xs={12} sx={{}}>
-                                <TextFieldSelect label={"Tipo de producto"} />
+                                {/* <TextFieldSelect label={"Tipo de producto"} /> */}
                             </Grid>
                         </Grid>
                         <Grid item container direction="column" xs={4}>

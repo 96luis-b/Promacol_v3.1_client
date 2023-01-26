@@ -83,6 +83,7 @@ export default function StatisticalReportPage() {
 						alert(response.message)
 						return
 					}
+					console.log(response.body)
 					setData(response.body)
 					setGroup([response.body[0]])
 					handleOpen()

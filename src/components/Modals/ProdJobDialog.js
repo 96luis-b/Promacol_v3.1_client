@@ -11,17 +11,17 @@ import * as AiIcons from 'react-icons/ai'
 
 
 export default function ProdJobDialog({
-     open, 
-     handleClickOpen, 
-     handleClose, 
-     data, 
-     options, 
-     option, 
-     handleChange, 
-     handleOpenConfirm, 
-     handleAddProdJob,
-     handleRemoveProdJob
-    }) {
+    open,
+    handleClickOpen,
+    handleClose,
+    data,
+    options,
+    option,
+    handleChange,
+    handleOpenConfirm,
+    handleAddProdJob,
+    handleRemoveProdJob
+}) {
 
 
 
@@ -32,27 +32,28 @@ export default function ProdJobDialog({
                 onClose={handleClose}
             >
                 <DialogTitle>
-                    <H3>Productos por puesto de trabajo</H3>
+                    <div>
+                        <H3>Productos por puesto de trabajo</H3>
+                    </div>
                 </DialogTitle>
                 <DialogContent>
-                    <H5>{data.job_name}</H5>
-                    <DialogContentText id="alert-dialog-slide-description">
-                        {data.products.map((prod, j) => {
-                            return <ListItemButton key={j}>
-                                <ListItemIcon>
-                                    <GoIcons.GoPrimitiveDot />
-                                </ListItemIcon>
-                                <ListItemText primary={`${prod.prod_name}`} />
-                                <ListItemIcon sx={{ color: "red", fontSize: "20px" }} onClick={()=>handleRemoveProdJob(data, prod)}>
-                                    <AiIcons.AiFillDelete />
-                                </ListItemIcon>
-                            </ListItemButton>
-                        })
-                        }
-                    </DialogContentText>
+                    <div>
+                        <H5>{data.job_name}</H5>
+                    </div>
+                    {data.products.map((prod, j) => {
+                        return <ListItemButton key={j}>
+                            <ListItemIcon>
+                                <GoIcons.GoPrimitiveDot />
+                            </ListItemIcon>
+                            <ListItemText primary={`${prod.prod_name}`} />
+                            <ListItemIcon sx={{ color: "red", fontSize: "20px" }} onClick={() => handleRemoveProdJob(data, prod)}>
+                                <AiIcons.AiFillDelete />
+                            </ListItemIcon>
+                        </ListItemButton>
+                    })
+                    }
                     <Grid container my={4}>
                         <Grid item xs={8}>
-                            {/* <TextFieldSelect /> */}
                             <TextFieldSelect
                                 options={options}
                                 onChange={handleChange}
@@ -61,13 +62,13 @@ export default function ProdJobDialog({
                                 label={"Unidades de producción"} />
                         </Grid>
                         <Grid item xs={4}>
-                            <Button variant="contained" onClick={()=> handleAddProdJob(data, option)}>Agregar</Button>
+                            <Button variant="contained" onClick={() => handleAddProdJob(data, option)}>Agregar</Button>
                         </Grid>
                     </Grid>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleClose}>Disagree</Button>
-                    <Button onClick={handleClose}>Agree</Button>
+                    {/* <Button onClick={handleClose}>Disagree</Button>
+                    <Button onClick={handleClose}>Agree</Button> */}
                 </DialogActions>
             </Dialog>
         </>

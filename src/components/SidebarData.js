@@ -9,6 +9,9 @@ import * as TbIcons from 'react-icons/tb'
 import * as CiIcons from 'react-icons/ci'
 import * as HiIcons from 'react-icons/hi'
 import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
+import ListAltIcon from '@mui/icons-material/ListAlt';
+// import {CiViewList} from 'react-icons/ci'
+
 
 
 
@@ -177,7 +180,8 @@ export const AdminSidebarData = [
     {
         title: 'Inserción de datos',
         // path: '/scop',
-        icon: <CiIcons.CiSaveDown2 />,
+        // icon: <CiIcons.CiSaveDown2 />,
+        icon: <MdIcons.MdSaveAlt />,
         iconClosed: <RiIcons.RiArrowDownSFill />,
         iconOpen: <RiIcons.RiArrowUpSFill />,
         subNav: [
@@ -186,17 +190,17 @@ export const AdminSidebarData = [
                 path: '/scop/extrac_producto',
                 icon: <RiIcons.RiDatabaseLine />
             },
-            // {
-            //     title: 'Pesaje',
-            //     path: '/scop/pesaje',
-            //     icon: <FaIcons.FaCartPlus />
-            // },
+            {
+                title: 'Pesaje',
+                path: '/scop/pesaje',
+                icon: <FaIcons.FaCartPlus />
+            },
         ]
     },
     {
         title: 'Unidades de producción',
         path: '/scop/unidad_produccion',
-        icon: <CiIcons.CiViewList />,
+        icon: <BsIcons.BsCardList />,
         iconClosed: <RiIcons.RiArrowDownSFill />,
         iconOpen: <RiIcons.RiArrowUpSFill />,
     },
